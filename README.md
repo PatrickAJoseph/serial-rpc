@@ -65,7 +65,7 @@ enabled notifications or not. If enabled, the notification packet is loaded into
 
 ### Processing of request and responses by the bus master
 
-```Mermaid
+```mermaid
 flowchart TD
     A[Gather values of byte fields of request index] --> B[Populate payload bytes of packet]
     B --> C[pad unpopulated payload bytes with 0]
