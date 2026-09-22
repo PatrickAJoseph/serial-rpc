@@ -63,7 +63,15 @@ index to call the required callback function in the application code to process 
 processed, the response packet is sent to the bus master. For sending over notifications, the target device checks if the bus master has 
 enabled notifications or not. If enabled, the notification packet is loaded into the notification buffer which is then sent to the bus master.
 
-### Processing of request and responses by the bus master
+### Processing of request and response by the bus master
+
+The bus master maintains a list of values associated with a certain request index and another set of values associated with a
+certain response index. When the host has to send out a request to a certain index, the host gathers the values associated with
+the target index and forms the payload. Once the payload is formed, the payload length is appended and is then zero-padded.
+The request index is then appended, followed by the bus target address and the CRC8 value for BYTE 0 to BYTE 30. The host sends out
+the request packet to the bus and waits for the bus target to send 32 bytes. Once 32 bytes are received, the host performs CRC check,
+framing check and packet type check. If all checks pass, the payload of the response packet is decoded and the values in the response list
+of the host is updated.
 
 ```mermaid
 flowchart TD
