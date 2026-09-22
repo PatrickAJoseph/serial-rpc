@@ -1,10 +1,10 @@
 # serial-rpc
-A simple serial remote procedure call protocol based on C for embedded systems. The transport layer protocol can
-be either UART or CAN protocol. This protocol is a hybrid request-response/streaming protocol designed for single bus
-systems where multiple devices/systems are connected to a single bus. In the bus, there is exactly one master which 
-sends out commands to a specific device along the bus and the device responds to the request. The bus master also has 
-control over the streaming of data by individual devices/systems on the bus. The bus master can enable/disable streaming 
-of data from a certain bus target in order to avoid collision of bytes on the system bus.
+A simple serial remote procedure call protocol based on C for embedded systems. The base level protocol is the UART protocol. 
+This protocol is a hybrid request-response/streaming protocol designed for single bus systems where multiple devices/systems 
+are connected to a single bus. In the bus, there is exactly one master which sends out commands to a specific device along the 
+bus and the device responds to the request. The bus master also has  control over the streaming of data by individual systems 
+on the bus. The bus master can enable/disable streaming  of data from a certain bus target in order to avoid collision of bytes
+on the system bus.
 
 ## Packet format
 Each protocol packet consists of the following fields:
@@ -30,7 +30,7 @@ Each protocol packet consists of the following fields:
                     ranges from 0 to 28 bytes.
                     
 **crc**:            Each packet is protected by a CRC field which CRC8-CCITT [ref](https://www.3dbrew.org/wiki/CRC-8-CCITT). The CRC
-                    field protects the entire packet. The CRC byte is always written to BYTE 31 of the packet.
+                    field protects BYTE 0 to BYTE 30. The CRC byte is always written to BYTE 31 of the packet.
 
 The request/response/notification packets have the following format:
 
@@ -63,3 +63,32 @@ index to call the required callback function in the application code to process 
 processed, the response packet is sent to the bus master. For sending over notifications, the target device checks if the bus master has 
 enabled notifications or not. If enabled, the notification packet is loaded into the notification buffer which is then sent to the bus master.
 
+### Processing of request and responses by the bus master
+
+```Mermaid
+flowchart TD
+    A[Gather values of byte fields of request index] --> B[Populate payload bytes of packet]
+    B --> C[pad unpopulated payload bytes with 0]
+    C --> D[Add payload length]
+    D --> E[Add request index]
+    E --> F[Set packet type to REQUEST]
+    F --> G[Set bus target address]
+    G --> H[Add CRC8 of request packet]
+    H --> I[Send request packet over serial I/F]
+    I --> J[Wait for 32 bytes to be sent by the bus target]
+    J --> K{Timeout?}
+    K --> |Yes| L[Raise Request.Error.Timeout]
+    K --> |No| M[Decode packet]
+    M --> N{CRC OK?}
+    N --> |No| O[Raise Request.Error.CRC]
+    N --> |Yes| P{Packet type == RESPONSE ?}
+    P --> |No| Q{Packet type == NOTIFICATION  ?}
+    Q --> |Yes| R{Process notification}
+    R --> J
+    Q --> |No| S[Raise Request.Error.Packet_Type]
+    P --> |Yes| T{BYTE L+3 to BYTE 30 is zero ?}
+    T --> |No| U[Raise Request.Error.Framing]
+    T --> |Yes| V{Is response index == request index ?}
+    V --> |No| W[Raise Request.Error.Response_Index_Mismatch]
+    V --> |Yes| X[Decode the payload bytes and update response packet values]
+```
