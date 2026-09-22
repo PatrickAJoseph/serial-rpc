@@ -29,8 +29,8 @@ Each protocol packet consists of the following fields:
 **payload_length**: The payload length indicates the number of bytes in the packet payload. The value of the payload length
                     ranges from 0 to 28 bytes.
                     
-**crc**:            Each packet is protected by a CRC field which CRC8-CCITT [text](https://www.3dbrew.org/wiki/CRC-8-CCITT). The CRC
-                    field protects the entire packet.
+**crc**:            Each packet is protected by a CRC field which CRC8-CCITT [ref](https://www.3dbrew.org/wiki/CRC-8-CCITT). The CRC
+                    field protects the entire packet. The CRC byte is always written to BYTE 31 of the packet.
 
 The request/response/notification packets have the following format:
 
@@ -38,30 +38,28 @@ The request/response/notification packets have the following format:
 |-------------------------------------------------------------------------|-----------------|--------------------------|
 | Address(BIT7-BIT4) : Packet Type (BIT3 - BIT2) : INDEX_H (BIT1 - BIT0)  |     INDEX_L     |   PAYLOAD_LENGTH (**L**) |
 
-|       BYTE 3 to BYTE L + 2        |    BYTE L + 3   |
-|-----------------------------------|-----------------|
-|    Payload bytes (length **L**)   |       CRC       |
+|       BYTE 3 to BYTE L + 2        |    BYTE L + 3 to BYTE 30  |    BYTE 31    |
+|-----------------------------------|---------------------------|---------------|
+|    Payload bytes (length **L**)   |              0            |    CRC        |
 
 The control and status packets have the following format:
 
-|                                BYTE 0                             |          BYTE 1      |      BYTE 2              |
-|-------------------------------------------------------------------|----------------------|--------------------------|
-| Address(BIT7-BIT4) : Packet Type (BIT3 - BIT2) : 0 (BIT1 - BIT0)  | ENABLE_NOTIFICATIONS |  TRANSMIT BUFFER SIZE    |
+|                                BYTE 0                             |          BYTE 1      |      BYTE 2               |
+|-------------------------------------------------------------------|----------------------|---------------------------|
+| Address(BIT7-BIT4) : Packet Type (BIT3 - BIT2) : 0 (BIT1 - BIT0)  | ENABLE_NOTIFICATIONS |  NOTIFICATION BUFFER SIZE |
 
 
-|       BYTE 3           |          BYTE 4                 |            BYTE 5              |       BYTE 6         |
-|------------------------|---------------------------------|--------------------------------|----------------------|
-|   RECEIVE BUFFER SIZE  |  TRANSMIT BUFFER ELEMENT COUNT  |   RECEIVE BUFFER ELEMENT COUNT |       CRC            |
+|               BYTE 3         |      BYTE 4 to BYTE 30   |    BYTE 31   |
+|------------------------------|--------------------------|--------------|
+|   NOTIFICATION BUFFER COUNT  |             0            |      CRC     |
 
 ## Detailed software architecture
 
 The bus master sends over a request packet over the bus to all devices. The devices on the bus receives the incoming byte and
 calculates the target address. If the target address of the packet does not equal to the device's own address, the bus target device
-rejects the incoming packet by not storing it in the request buffer. If the address of the incoming packet matches with the target
-device, the incoming packet is stored in the request queue (if the packet type is not control/status). If the incoming packet
-is a control/status packet, the device immediately sends out the response to the bus master. Once the request packet is loaded into
-the request buffer, the application then gets the request packet from the request buffer, gets the payload and then uses the request packet
+rejects the incoming packet, else, processes it. If the incoming packet is a control/status packet, the device immediately sends out 
+the response to the bus master. The bus target software then gets the request packet, extracts the payload and then uses the request packet
 index to call the required callback function in the application code to process the request sent by the bus master. Once the request is
-processed, the response packet is loaded into the response buffer which is then sent to the bus master. For sending over notifications,
-the target device checks if the bus master has enabled notifications or not. If enabled, the notification packet is loaded into
-the notification buffer which is then sent to the bus master.
+processed, the response packet is sent to the bus master. For sending over notifications, the target device checks if the bus master has 
+enabled notifications or not. If enabled, the notification packet is loaded into the notification buffer which is then sent to the bus master.
+
