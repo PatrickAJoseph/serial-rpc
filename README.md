@@ -138,3 +138,17 @@ flowchart TD
     N --> O[Send the response packet over the serial interface]
     O --> P[Send receive byte index to 0 and receive byte count to 0 and set receive flag to FALSE]
 ```
+
+### Processing of notification packets by bus target and bus master
+
+The bus target/devic checks if the notification flag is set. If set, then, form the notification packet and
+send the notification packet over serial interface. The bus master received the notification packet and gets the
+notification index and updates the values associated with the notification index.
+
+## Processing of control and status by the bus target and bus master
+
+The bus master sends out a control and status packet with the ENABLE_NOTIFICATIONS set to 0 or 1. The value of
+NOTIFICATION_BUFFER_SIZE and NOTIFICATION_BUFFER_COUNT must be set to zero. The bus target receives the packet
+and check of notifications have to be enabled. If notifications have to be enabled, set notification flag to TRUE,
+else, set it to FALSE. The device then gets the notification buffer count and notification buffer size and sends
+the response CONTROL_AND_STATUS packet over the serial interface.
