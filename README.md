@@ -100,3 +100,41 @@ flowchart TD
     V --> |No| W[Raise Request.Error.Response_Index_Mismatch]
     V --> |Yes| X[Decode the payload bytes and update response packet values]
 ```
+
+### Processing of request and response by the bus target
+
+The devices on the bus continuously read the bytes sent by the bus master. The device stores the received bytes
+in a temporary buffer. Everytime a byte is being received, the receive byte count and the receive byte index
+increments by one. Once the receive byte count is 32 bytes, the CRC of the received packet is calculated. If the
+CRC of the received packet is not equal to zero, then, the receive byte count and the receive byte index is set
+to zero. If the CRC of the received packet is equal to zero, then the packet is a valid packet. Next, the index,
+packet type and the payload is extracted. If the packet type is not REQUEST and not CONTROL_AND_STATUS, the
+receive byte index and the receive byte count is set to 0. If the received packet type is CONTROL_AND_STATUS, then,
+the control and status word is processed. If the type of the received packet is REQUEST, then, set the request flag
+to TRUE. Now, check of the request index is supported by the target device. If the request index is not supported,
+set receive byte count and index to 0 and request flag to FALSE. If the request index is present in the device,
+invoke the callback function to process the response, form the response packet and send the response over serial
+interface. Once the response is sent, set receive byte count and index to 0 and request flag to FALSE.
+
+```mermaid
+flowchart TD
+    A[ENTRY] --> B[Store received byte in temporary packet]
+    B --> C{Is received byte count == 32?}
+    C --> |No| B
+    C --> |Yes| D{Is CRC8 OK?}
+    D --> |No| E[Reset receive byte index to 0 and receive byte count to 0 and request flag to FALSE]
+    D --> |Yes| F[Extract bus target address, packet type, request index and payload]
+    F --> G{Is received packet bus target address same as the current device's address?}
+    G --> |No| E
+    G --> |Yes| H{Is packet type REQUEST ?}
+    H --> |No| I{Is packet type CONTROL_AND_STATUS ?}
+    I --> |No| E
+    I --> |Yes| J[Process control and status packet]
+    H --> |Yes| K[Set request flag to TRUE]
+    K --> L{Is request index supported by device ?}
+    L --> |No| E
+    L --> |Yes| M[Invoke the callback function to process response]
+    M --> N[Form the response packet]
+    N --> O[Send the response packet over the serial interface]
+    O --> P[Send receive byte index to 0 and receive byte count to 0 and set receive flag to FALSE]
+```
