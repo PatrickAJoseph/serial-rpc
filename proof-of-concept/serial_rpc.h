@@ -57,7 +57,7 @@ serial_rpc_handle_t __name__ =                                                  
     ((x >> 8) & 0x3)
 
 #define SERIAL_RPC_PACKET_INDEX(_hi, _lo)           \
-    (((uint16_t)(_hi)) << 8) | ((uint16_t)(_lo))
+    ( (((uint16_t)(_hi)) << 8) | ((uint16_t)(_lo)) )
 
 #define SERIAL_RPC_PACKET_TYPE_ENUM_STRING(x)                                                   \
     (x == SERIAL_RPC_PACKET_TYPE_REQUEST) ? "REQUEST"     :                                     \

@@ -12,4 +12,7 @@ $(TARGET): $(SOURCES)
 	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)
 
 clean:
-	del $(TARGET)
+	rm -rf $(TARGET)
+
+run:
+	$(TARGET)
