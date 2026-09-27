@@ -77,12 +77,22 @@ int serial_rpc_init(serial_rpc_handle_t* handle)
     handle->processing_response = false;
     handle->rx_buffer_index = 0;
     
+    handle->notification_buffer_count = 0;
+    handle->notification_buffer_read_index = 0;
+    handle->notification_buffer_write_index = 0;
+    memset(handle->notification_packet_buffer, 0, sizeof(handle->notification_packet_buffer));
+    
     return 0;
 };
 
 void serial_rpc_handle_rx_byte(serial_rpc_handle_t* handle, uint8_t rx_byte)
 {
     if(!handle->processing_response) {
+        
+        if(handle->rx_buffer_index == 0)
+        {
+            memset(handle->rx_buffer, 0, sizeof(handle->rx_buffer));
+        }
         
         handle->rx_buffer[handle->rx_buffer_index] = rx_byte;
         
@@ -107,6 +117,27 @@ void serial_rpc_handle_rx_byte(serial_rpc_handle_t* handle, uint8_t rx_byte)
             handle->rx_buffer_index = 0;
         }
     }
+}
+
+static int serial_rpc_read_notification(serial_rpc_handle_t* handle, serial_rpc_notification_packet_t* packet)
+{
+    if(handle->notification_buffer_count == 0)
+    {
+        return -EINVAL;
+    }
+    
+    *packet = handle->notification_packet_buffer[handle->notification_buffer_read_index];
+    
+    handle->notification_buffer_read_index++;
+    
+    if(handle->notification_buffer_read_index >= SERIAL_RPC_NOTIFICATION_BUFFER_SIZE)
+    {
+        handle->notification_buffer_read_index = 0;
+    }
+    
+    handle->notification_buffer_count--;
+    
+    return 0;
 }
 
 void serial_rpc_process(serial_rpc_handle_t* handle)
@@ -172,13 +203,86 @@ void serial_rpc_process(serial_rpc_handle_t* handle)
                 }
             }
             break;
+            
+            case SERIAL_RPC_PACKET_TYPE_CONTROL_AND_STATUS:
+            {
+                serial_rpc_control_and_status_packet_t* rx_packet = (serial_rpc_control_and_status_packet_t*)handle->rx_buffer;
+                serial_rpc_control_and_status_packet_t* tx_packet = (serial_rpc_control_and_status_packet_t*)handle->tx_buffer;
+                
+                if(rx_packet->enable_notifications)
+                {
+                    SERIAL_RPC_LOG("Enabled notifications");
+                    handle->notifications_enabled = true;
+                }
+                else
+                {
+                    SERIAL_RPC_LOG("Disabled notifications");
+                    handle->notifications_enabled = false;
+                }
+                
+                memset(tx_packet, 0, sizeof(serial_rpc_control_and_status_packet_t));
+                
+                tx_packet->address = handle->target_address;
+                tx_packet->packet_type = SERIAL_RPC_PACKET_TYPE_CONTROL_AND_STATUS;
+                tx_packet->enable_notifications = handle->notifications_enabled;
+                tx_packet->notification_buffer_length = SERIAL_RPC_NOTIFICATION_BUFFER_SIZE;
+                tx_packet->notification_buffer_count = handle->notification_buffer_count;
+                tx_packet->crc = crc8ccitt( (uint8_t*)tx_packet, sizeof(serial_rpc_control_and_status_packet_t)  - 1 );
+                
+                memcpy(handle->tx_buffer, tx_packet, sizeof(serial_rpc_packet_t));
+                
+                handle->send(handle->tx_buffer, sizeof(serial_rpc_control_and_status_packet_t));
+            }
+            break;
+            
+            default:
+                SERIAL_RPC_LOG("Invalid packet received");
         }
         
         handle->processing_response = false;
+    }
+    
+    if(handle->notifications_enabled)
+    { 
+        while( ( serial_rpc_read_notification(handle, (serial_rpc_notification_packet_t*)handle->tx_buffer) == 0 ) )
+        {
+            handle->send(handle->tx_buffer, sizeof(serial_rpc_packet_t));
+        }
     }
 }
 
 int serial_rpc_send_notification(serial_rpc_handle_t* handle, uint16_t index, void* data, size_t length)
 {
+    serial_rpc_notification_packet_t* packet = &handle->notification_packet_buffer[handle->notification_buffer_write_index];
+    
+    if(length > (size_t)(SERIAL_RPC_PACKET_SIZE - 4))
+    {
+        return -EINVAL;
+    }
+    
+    if(handle->notification_buffer_count == SERIAL_RPC_NOTIFICATION_BUFFER_SIZE)
+    {
+        SERIAL_RPC_LOG("Notification buffer full");
+        return -ENOSPC;
+    }
+    
+    packet->address = handle->target_address;
+    packet->packet_type = SERIAL_RPC_PACKET_TYPE_NOTIFICATION;
+    packet->index_low = SERIAL_RPC_PACKET_INDEX_LOW(index);
+    packet->index_high = SERIAL_RPC_PACKET_INDEX_HIGH(index);
+    packet->payload_length = (uint8_t)length;
+    
+    memcpy(packet->payload, data, length);
+    
+    packet->crc = crc8ccitt((uint8_t*)packet, sizeof(serial_rpc_notification_packet_t) - 1);
+    
+    handle->notification_buffer_write_index++;
+    handle->notification_buffer_count++;
+    
+    if(handle->notification_buffer_write_index >= SERIAL_RPC_NOTIFICATION_BUFFER_SIZE)
+    {
+        handle->notification_buffer_write_index = 0;
+    }
+    
     return 0;
 }

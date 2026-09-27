@@ -14,7 +14,8 @@
 #define SERIAL_RPC_LOG(x, ...)      printf("[SERIAL RPC LOG] %s:%d ==> " #x "\n", __FILE__, __LINE__, ##__VA_ARGS__);
 #endif /* SERIAL_RPC_LOG_ENABLE */
 
-#define SERIAL_RPC_PACKET_SIZE      (32U)
+#define SERIAL_RPC_PACKET_SIZE                  (32U)
+#define SERIAL_RPC_NOTIFICATION_BUFFER_SIZE     (32U)
 
 #define SERIAL_RPC_PACKET_TYPE_REQUEST              (0U)
 #define SERIAL_RPC_PACKET_TYPE_RESPONSE             (1U)
@@ -221,7 +222,7 @@ typedef struct {
     uint8_t reserved_1      :   2;
     uint8_t packet_type     :   2;    
     uint8_t address         :   4;
-    uint8_t reserved_2;
+    uint8_t enable_notifications;
     uint8_t notification_buffer_length;
     uint8_t notification_buffer_count;
     uint8_t reserved_3[SERIAL_RPC_PACKET_SIZE - 5];
@@ -280,6 +281,21 @@ struct serial_rpc_handle {
   
   /* Processing response flag. Indicates the the bus target has received and yet to process it. */
   bool processing_response;
+  
+  /* Notification enabled. */
+  bool notifications_enabled;
+  
+  /* Notification packet ring buffer. */
+  serial_rpc_notification_packet_t notification_packet_buffer[SERIAL_RPC_NOTIFICATION_BUFFER_SIZE];
+  
+  /* Notification buffer count. */
+  uint32_t notification_buffer_count;
+  
+  /* Notification buffer read index. */
+  uint32_t notification_buffer_read_index;
+  
+  /* Notification buffer write index. */
+  uint32_t notification_buffer_write_index;
   
   /* Application specific function to sending out bytes to the system bus */ 
   void (*send)(uint8_t* data, size_t length);

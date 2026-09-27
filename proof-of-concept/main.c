@@ -16,6 +16,19 @@ serial_rpc_packet_t test_packets[] =
           },
 };
 
+serial_rpc_control_and_status_packet_t test_control_and_status_packet = {
+    .address = 0x00,
+    .packet_type = SERIAL_RPC_PACKET_TYPE_CONTROL_AND_STATUS,
+    .enable_notifications = true,
+};
+
+uint8_t test_notification[] = {
+    0x01,
+    0x02,
+    0x03,
+    0x04,
+};
+
 /* Define callback functions. */
 SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_response_callback_0)
 {
@@ -56,6 +69,8 @@ static void test_packets_preprocess()
     {
         test_packets[index].crc = crc8ccitt( (uint8_t*)&test_packets[index], sizeof(serial_rpc_packet_t) - 1 );
     }
+    
+    test_control_and_status_packet.crc = crc8ccitt( (uint8_t*)&test_control_and_status_packet, sizeof(test_control_and_status_packet) - 1 );
 }
 
 static void test_consume_test_packet(int index)
@@ -68,6 +83,16 @@ static void test_consume_test_packet(int index)
     }
 }
 
+static void test_consume_test_control_and_status_packet()
+{
+    int byte_index;
+    
+    for( byte_index = 0 ; byte_index < sizeof(serial_rpc_packet_t) ; byte_index++ )
+    {
+        serial_rpc_handle_rx_byte(&test_rpc_handle, ((uint8_t*)&test_control_and_status_packet)[byte_index] );
+    }
+}
+
 /*************************** Main function *************************/
 
 int main(void) {
@@ -75,7 +100,8 @@ int main(void) {
     test_packets_preprocess();
     serial_rpc_init(&test_rpc_handle);
     
-    test_consume_test_packet(0);
+    test_consume_test_control_and_status_packet();
+    serial_rpc_send_notification(&test_rpc_handle, 0, (void*)test_notification, sizeof(test_notification)); 
     
     serial_rpc_process(&test_rpc_handle);
     
