@@ -5,6 +5,8 @@
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART2.h>
 
+#include <ti/devices/cc23x0r5/driverlib/hapi.h>
+
 #include "ti_drivers_config.h"
 #include <serial_rpc.h>
 
@@ -106,29 +108,193 @@ void *mainThread(void *arg0)
     }
 }
 
+/****************************** Application code starts here *********************8*/
+
+/* Type definitions. */
+
+struct led_params {
+    bool state;
+    uint8_t blink_count;
+    uint16_t blink_interval;
+    uint16_t total_blink_count;
+};
+
+struct button_params {
+    bool state;
+    uint8_t press_count;
+};
+
+/* Global variables. */
+
+struct led_params led0_params;
+struct led_params led1_params;
+struct button_params button0_params;
+struct button_params buton1_params;
+
+/** 
+ *  LED0 control RPC request packet payload has the following structure.
+ *
+ *  BYTE0       : set_led_0_state
+ *  BYTE1       : led_0_state
+ *  BYTE2       : set_led_0_blink_count
+ *  BYTE3       : led_0_blink_count
+ *  BYTE4       : set_led_0_blink_interval_ms
+ *  BYTE5 & 6   : led_0_blink_interval_ms
+ *  BYTE7       : led_0_blink    
+*/
+
+/**
+ *  Controls the onboard red LED.
+ */
+
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_0_control)
 {
+    bool set_led0_state;
+    bool state;
+    bool set_led0_blink_count;
+    uint8_t blink_count;
+    bool set_led0_blink_interval_ms;
+    uint16_t blink_interval;
+    bool blink;
 
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 0, ((uint8_t*)&set_led0_state));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 1, ((uint8_t*)&state));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 2, ((uint8_t*)&set_led0_blink_count));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 3, ((uint8_t*)&blink_count));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 4, ((uint8_t*)&set_led0_blink_interval_ms));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT16((&rpc_handle), 5, ((uint16_t*)&blink_interval));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 7, ((uint8_t*)&blink));
+
+    if(set_led0_state) {
+        led0_params.state = state;
+        GPIO_write(CONFIG_GPIO_LED_0, state);
+    }
+
+    if(set_led0_blink_count) {
+        led0_params.blink_count = blink_count;
+    }
+
+    if(set_led0_blink_interval_ms) {
+        led0_params.blink_interval = blink_interval;
+    }
+
+    if(blink) 
+    {
+        int index;
+
+        for(index = 0 ; index < led0_params.blink_count ; index++)
+        {
+            GPIO_write(CONFIG_GPIO_LED_0, 1);
+            HapiWaitUs( 1000 * led0_params.blink_interval );
+            GPIO_write(CONFIG_GPIO_LED_0, 0);
+            HapiWaitUs( 1000 * led0_params.blink_interval );
+            led0_params.total_blink_count++;
+        }
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 1);
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8((&rpc_handle), 0, 0);
 }
+
+/**
+  *  Gets status of LED0 (red LED).
+  *
+  *  BYTE0: current state of LED.
+  *  BYTE1 & 2: number of times the LED has to blinked.
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_0_status)
 {
-
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 3);
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (led0_params.state) );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 1, (led0_params.total_blink_count)  );
 }
+
+/** 
+ *  LED1 control RPC request packet payload has the following structure.
+ *
+ *  BYTE0       : set_led_1_state
+ *  BYTE1       : led_1_state
+ *  BYTE2       : set_led_1_blink_count
+ *  BYTE3       : led_1_blink_count
+ *  BYTE4       : set_led_1_blink_interval_ms
+ *  BYTE5 & 6   : led_1_blink_interval_ms
+ *  BYTE7       : led_1_blink    
+*/
+
+/**
+ *  Controls the onboard green LED.
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_1_control)
 {
+    bool set_led1_state;
+    bool state;
+    bool set_led1_blink_count;
+    uint8_t blink_count;
+    bool set_led1_blink_interval_ms;
+    uint16_t blink_interval;
+    bool blink;
 
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 0, ((uint8_t*)&set_led1_state));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 1, ((uint8_t*)&state));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 2, ((uint8_t*)&set_led1_blink_count));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 3, ((uint8_t*)&blink_count));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 4, ((uint8_t*)&set_led1_blink_interval_ms));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT16((&rpc_handle), 5, ((uint16_t*)&blink_interval));
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8((&rpc_handle), 7, ((uint8_t*)&blink));
+
+    if(set_led1_state) {
+        led1_params.state = state;
+        GPIO_write(CONFIG_GPIO_LED_1, state);
+    }
+
+    if(set_led1_blink_count) {
+        led1_params.blink_count = blink_count;
+    }
+
+    if(set_led1_blink_interval_ms) {
+        led1_params.blink_interval = blink_interval;
+    }
+
+    if(blink) 
+    {
+        int index;
+
+        for(index = 0 ; index < led1_params.blink_count ; index++)
+        {
+            GPIO_write(CONFIG_GPIO_LED_1, 1);
+            HapiWaitUs( 1000 * led1_params.blink_interval );
+            GPIO_write(CONFIG_GPIO_LED_1, 0);
+            HapiWaitUs( 1000 * led1_params.blink_interval );
+            led1_params.total_blink_count++;
+        }
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 1);
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8((&rpc_handle), 0, 0);
 }
+
+/**
+  *  Gets status of LED0 (red LED).
+  *
+  *  BYTE0: current state of LED.
+  *  BYTE1 & 2: number of times the LED has to blinked.
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_1_status)
 {
-
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 5);
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (led1_params.state) );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 1, (led1_params.blink_count)  );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 3, (led1_params.blink_interval) ); 
 }
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_0_control)
 {
-
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 3);
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (led1_params.state) );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 1, (led1_params.total_blink_count)  );
 }
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_0_status)

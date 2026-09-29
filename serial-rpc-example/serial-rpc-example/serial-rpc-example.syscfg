@@ -12,6 +12,7 @@
 const FreeRTOS = scripting.addModule("/freertos/FreeRTOS");
 const GPIO     = scripting.addModule("/ti/drivers/GPIO");
 const GPIO1    = GPIO.addInstance();
+const GPIO4    = GPIO.addInstance();
 const Power    = scripting.addModule("/ti/drivers/Power");
 const UART2    = scripting.addModule("/ti/drivers/UART2", {}, false);
 const UART21   = UART2.addInstance();
@@ -22,6 +23,9 @@ const Settings = scripting.addModule("/ti/posix/freertos/Settings");
  */
 GPIO1.$hardware = system.deviceData.board.components.LED_RED;
 GPIO1.$name     = "CONFIG_GPIO_LED_0";
+
+GPIO4.$name     = "CONFIG_GPIO_LED_1";
+GPIO4.$hardware = system.deviceData.board.components.LED_GREEN;
 
 const CCFG              = scripting.addModule("/ti/devices/CCFG", {}, false);
 CCFG.ccfgTemplate.$name = "ti_devices_CCFG_CCFGCC23X0Template0";
@@ -37,6 +41,7 @@ UART21.txRingBufferSize = 128;
  * re-solve from scratch.
  */
 GPIO1.gpioPin.$suggestSolution            = "boosterpack.39";
+GPIO4.gpioPin.$suggestSolution            = "boosterpack.40";
 UART21.uart.$suggestSolution              = "UART0";
 UART21.uart.dmaTxChannel.$suggestSolution = "DMA_CH1";
 UART21.uart.dmaRxChannel.$suggestSolution = "DMA_CH0";
