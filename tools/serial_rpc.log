@@ -1,0 +1,64 @@
+2026-09-30 23:22:39,040 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter name: set_led_0_state
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter name: led_0_state
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter name: set_led_0_blink_count
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter name: led_0_blink_count
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter name: set_led_0_blink_interval_ms
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,041 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter name: led_0_blink_interval_ms
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter group: request
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter name: led_0_blink
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter group: response
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter group: notification
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter set name: button0_notification
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter name: button_press_count
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: Parameter value: 0
+2026-09-30 23:22:39,042 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-09-30 23:22:39,042 [DEBUG] serial_rpc_logger: RPC initialized
