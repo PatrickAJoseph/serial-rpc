@@ -29,7 +29,7 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_1_status);
 
 /* Response callback table. */
 
-SERIAL_RPC_RESPONSE_CALLBACK_TABLE_DEFINE(response_callback_table) = 
+SERIAL_RPC_RESPONSE_CALLBACK_TABLE_DEFINE(response_callback_table) =
 {
     SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0, led_0_control, NULL),
     SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(1, led_0_status, NULL),
@@ -43,6 +43,7 @@ SERIAL_RPC_RESPONSE_CALLBACK_TABLE_DEFINE(response_callback_table) =
 };
 
 /* Function to send out bytes using UART. */
+
 static void uartSend(uint8_t* data, size_t length)
 {
     int ret;
@@ -61,7 +62,7 @@ SERIAL_RPC_HANDLE_DEFINE(rpc_handle, BUS_TARGET_ADDRESS, response_callback_table
 /* UART read callback function. */
 static void uartCallback(UART2_Handle handle, void *buf, size_t count, void *userArg, int_fast16_t status)
 {
-    uint8_t* data;
+    uint8_t* data = buf;
     int index;
 
     for( index = 0 ; index < (int)count ; index++ )
@@ -70,16 +71,27 @@ static void uartCallback(UART2_Handle handle, void *buf, size_t count, void *use
     }
 }
 
+static void gpioCallback(uint_least8_t index); 
+
+uint8_t dummy[SERIAL_RPC_PACKET_SIZE];
+
 void *mainThread(void *arg0)
 {
-    static uint8_t dummy;
     int ret;
+
+    /* Initialize GPIO. */
+
+    GPIO_setCallback(CONFIG_GPIO_BUTTON_0, gpioCallback);
+    GPIO_setCallback(CONFIG_GPIO_BUTTON_1, gpioCallback);
+    GPIO_enableInt(CONFIG_GPIO_BUTTON_0);
+    GPIO_enableInt(CONFIG_GPIO_BUTTON_1);
 
     GPIO_init();
 
     /* Initialize UART. */
 
-    uartParams.baudRate = 115200;
+    UART2_Params_init(&uartParams);
+
     uartParams.readMode = UART2_Mode_CALLBACK;
     uartParams.readCallback = uartCallback;
 
@@ -101,7 +113,7 @@ void *mainThread(void *arg0)
     while (1)
     {
         /* Read incoming bytes from UART RX line. */
-        UART2_read(uartHandle, &dummy, 1, NULL);
+        UART2_read(uartHandle, dummy, SERIAL_RPC_PACKET_SIZE, NULL);
 
         /* Process existing RPC packets. */
         (void)serial_rpc_process(&rpc_handle);
@@ -129,9 +141,24 @@ struct button_params {
 struct led_params led0_params;
 struct led_params led1_params;
 struct button_params button0_params;
-struct button_params buton1_params;
+struct button_params button1_params;
 
-/** 
+/* Static functions. */ 
+
+static void gpioCallback(uint_least8_t index)
+{
+    if(index == CONFIG_GPIO_BUTTON_0)
+    {
+        button0_params.press_count++;
+    }
+
+    if(index == CONFIG_GPIO_BUTTON_1)
+    {
+        button1_params.press_count++;
+    }
+}
+
+/**
  *  LED0 control RPC request packet payload has the following structure.
  *
  *  BYTE0       : set_led_0_state
@@ -178,7 +205,7 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_0_control)
         led0_params.blink_interval = blink_interval;
     }
 
-    if(blink) 
+    if(blink)
     {
         int index;
 
@@ -210,7 +237,7 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_0_status)
     SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 1, (led0_params.total_blink_count)  );
 }
 
-/** 
+/**
  *  LED1 control RPC request packet payload has the following structure.
  *
  *  BYTE0       : set_led_1_state
@@ -257,7 +284,7 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_1_control)
         led1_params.blink_interval = blink_interval;
     }
 
-    if(blink) 
+    if(blink)
     {
         int index;
 
@@ -287,27 +314,72 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(led_1_status)
     SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 5);
     SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (led1_params.state) );
     SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 1, (led1_params.blink_count)  );
-    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 3, (led1_params.blink_interval) ); 
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 3, (led1_params.blink_interval) );
 }
+
+/**
+ *  Resets the button press counter.
+ *
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_0_control)
 {
-    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH((&rpc_handle), 3);
-    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (led1_params.state) );
-    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), 1, (led1_params.total_blink_count)  );
+    bool reset;
+
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, ((uint8_t*)(&reset)) );
+
+    if(reset)
+    {
+        button0_params.press_count = 0;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), 1 );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, 0 );
 }
+
+/**
+ *  Gets the state of BTN-1.
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_0_status)
 {
+    button0_params.state = GPIO_read(CONFIG_GPIO_BUTTON_0);
 
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle),  2 );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (button0_params.state) );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 1, (button0_params.press_count) );
 }
+
+/**
+ *  Resets the button press counter.
+ *
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_1_control)
 {
+    bool reset;
 
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, ((uint8_t*)(&reset)) );
+
+    if(reset)
+    {
+        button1_params.press_count = 0;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), 1 );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, 0 );
 }
+
+
+/**
+ *  Gets the state of BTN-2.
+ */
 
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_1_status)
 {
+    button1_params.state = GPIO_read(CONFIG_GPIO_BUTTON_1);
 
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle),  2 );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (button1_params.state) );
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 1, (button1_params.press_count) );
 }
