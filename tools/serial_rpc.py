@@ -5,6 +5,26 @@ import yaml
 import ast
 from enum import Enum
 import logging
+import struct
+
+MAX_PAYLOAD_LENGTH = 28
+
+def crc8_ccitt(data: bytes) -> int:
+    if not isinstance(data, (bytes, bytearray)):
+        raise TypeError("Input must be bytes or bytearray.")
+
+    crc = 0x00  # Initial value
+    poly = 0x07  # Polynomial
+
+    for byte in data:
+        crc ^= byte  # XOR byte into CRC
+        for _ in range(8):  # Process each bit
+            if crc & 0x80:  # If MSB is set
+                crc = ((crc << 1) & 0xFF) ^ poly
+            else:
+                crc = (crc << 1) & 0xFF
+
+    return crc
 
 class serial_rpc:
 
@@ -105,3 +125,273 @@ class serial_rpc:
         
         self.logger.debug("RPC initialized")
     
+    def set_request_parameter_value(self, request_name, parameter_name, value):
+        
+        target_parameter = None
+        
+        for parameter in self.request_parameters:
+            if parameter.parameter_set_name == request_name and parameter.parameter_name == parameter_name:
+                target_parameter = parameter
+                break
+        
+        if target_parameter == None:
+            self.logger.error(f"Request parameter {request_name}:{parameter_name} not found !")
+            raise ValueError(f"Request parameter {request_name}:{parameter_name} not found !")
+        
+        target_parameter.set(value)
+
+    def get_request_parameter_value(self, request_name, parameter_name):
+        
+        target_parameter = None
+        
+        for parameter in self.request_parameters:
+            if parameter.parameter_set_name == request_name and parameter.parameter_name == parameter_name:
+                target_parameter = parameter
+                break
+        
+        if target_parameter == None:
+            self.logger.error(f"Request parameter {request_name}:{parameter_name} not found !")
+            raise ValueError(f"Request parameter {request_name}:{parameter_name} not found !")
+        
+        return target_parameter.get()
+
+    def set_response_parameter_value(self, response_name, parameter_name, value):
+        
+        target_parameter = None
+        
+        for parameter in self.response_parameters:
+            if parameter.parameter_set_name == response_name and parameter.parameter_name == parameter_name:
+                target_parameter = parameter
+                break
+        
+        if target_parameter == None:
+            self.logger.error(f"Response parameter {response_name}:{parameter_name} not found !")
+            raise ValueError(f"Response parameter {response_name}:{parameter_name} not found !")
+        
+        target_parameter.set(value)
+
+    def get_response_parameter_value(self, response_name, parameter_name):
+        
+        target_parameter = None
+        
+        for parameter in self.response_parameters:
+            if parameter.parameter_set_name == response_name and parameter.parameter_name == parameter_name:
+                target_parameter = parameter
+                break
+        
+        if target_parameter == None:
+            self.logger.error(f"Response parameter {response_name}:{parameter_name} not found !")
+            raise ValueError(f"Response parameter {response_name}:{parameter_name} not found !")
+        
+        return target_parameter.get()
+
+    def set_notification_parameter_value(self, notification_name, parameter_name, value):
+        
+        target_parameter = None
+        
+        for parameter in self.notification_parameters:
+            if parameter.parameter_set_name == notification_name and parameter.parameter_name == parameter_name:
+                target_parameter = parameter
+                break
+        
+        if target_parameter == None:
+            self.logger.error(f"Notification parameter {notification_name}:{parameter_name} not found !")
+            raise ValueError(f"Notification parameter {notification_name}:{parameter_name} not found !")
+        
+        target_parameter.set(value)
+
+    def get_notification_parameter_value(self, response_name, parameter_name):
+        
+        target_parameter = None
+        
+        for parameter in self.notification_parameters:
+            if parameter.parameter_set_name == notification_name and parameter.parameter_name == parameter_name:
+                target_parameter = parameter
+                break
+        
+        if target_parameter == None:
+            self.logger.error(f"Notification parameter {notification_name}:{parameter_name} not found !")
+            raise ValueError(f"Notification parameter {notification_name}:{parameter_name} not found !")
+        
+        return target_parameter.get()
+
+    def form_request_payload(self, request_name: str):
+        
+        parameter_list = []
+        
+        for parameter in self.request_parameters:
+            if parameter.parameter_set_name == request_name:
+                parameter_list.append(parameter)
+        
+        payload = []
+        
+        for parameter in parameter_list:
+            
+            if parameter.is_a_list == False:
+                
+                if parameter.parameter_type == 'uint8' or parameter.parameter_type == 'int8':
+                    payload.append( int(parameter.value) & 255 )
+                
+                if parameter.parameter_type == 'uint16' or parameter.parameter_type == 'int16':
+                    payload.append( (int(parameter.value) >> 8) & 255 )
+                    payload.append( int(parameter.value) & 255 )
+                
+                if parameter.parameter_type == 'uint32' or parameter.parameter_type == 'int32':
+                    payload.append( ( int(parameter.value) >> 24 ) & 255 )
+                    payload.append( ( int(parameter.value) >> 16 ) & 255 )
+                    payload.append( ( int(parameter.value) >> 8 ) & 255 )
+                    payload.append( ( int(parameter.value) ) & 255 )
+                    
+                if parameter.parameter_type == 'float':    
+                    _value = struct.unpack('>I', struct.pack('>f', float(parameter.value)))[0]
+                    payload.append( ( _value >> 24 ) & 255 )
+                    payload.append( ( _value >> 16 ) & 255 )
+                    payload.append( ( _value >> 8 ) & 255 )
+                    payload.append( _value & 255 )                
+
+            else:
+
+                values = parameter.value
+
+                for value in values:
+
+                    if parameter.parameter_type == 'uint8' or parameter.parameter_type == 'int8':
+                        payload.append( int(value) & 255 )
+                
+                    if parameter.parameter_type == 'uint16' or parameter.parameter_type == 'int16':
+                        payload.append( (int(value) >> 8) & 255 )
+                        payload.append( int(value) & 255 )
+                
+                    if parameter.parameter_type == 'uint32' or parameter.parameter_type == 'int32':
+                        payload.append( ( int(value) >> 24 ) & 255 )
+                        payload.append( ( int(value) >> 16 ) & 255 )
+                        payload.append( ( int(value) >> 8 ) & 255 )
+                        payload.append( ( int(value) ) & 255 )
+                    
+                    if parameter.parameter_type == 'float':    
+                        _value = struct.unpack('>I', struct.pack('>f', float(value)))[0]
+                        payload.append( ( _value >> 24 ) & 255 )
+                        payload.append( ( _value >> 16 ) & 255 )
+                        payload.append( ( _value >> 8 ) & 255 )
+                        payload.append( _value & 255 )                
+
+        self.logger.info(f"Request payload for request parameter {request_name} = {payload}")
+
+        return payload
+
+    def get_request_id(self, request_name: str):
+        
+        target_parameter = None
+        
+        for parameter in self.request_parameters:
+            if parameter.parameter_set_name == request_name:
+                target_parameter = parameter
+        
+        if target_parameter == None:
+            raise ValueError(f"Request ID for request {request_name} not found !")
+        
+        return target_parameter.id
+
+    def get_response_name(self, response_id: int):
+        
+        target_parameter = None
+        
+        for parameter in self.response_parameters:
+            if parameter.id == response_id:
+                target_parameter = parameter
+        
+        if target_parameter == None:
+            raise ValueError(f"Response name for response ID {response_id} not found !")
+        
+        return target_parameter.parameter_set_name    
+
+    def decode_response_packet(self, packet):
+        
+        if crc8_ccitt(packet) != 0:
+            raise IOError("CRC of response packet is corrupted !")
+        
+        response_id = ( ( int(packet[0]) & 3 ) << 8 ) | int(packet[1])
+        response_payload_length = int(packet[2])
+        response_payload = packet[3: (3 + response_payload_length)]
+        response_name = self.get_response_name(response_id)
+        
+        self.logger.info(f"Response packet ID: {response_id}")
+        self.logger.info(f"Response payload length: {response_payload_length}")
+        self.logger.info(f"Response payload: {response_payload}")
+        self.logger.info(f"Response name: {response_name}")
+        
+        response_parameter_list = []
+        
+        for parameter in self.response_parameters:
+        
+            if parameter.id == response_id:
+            
+                response_parameter_list.append(parameter)
+        
+        index = 0
+        
+        for parameter in response_parameter_list:
+            
+            if parameter.is_a_list == False:
+                
+                if parameter.parameter_type == 'uint8' or parameter.parameter_type == 'int8':
+                   
+                    _value = int.from_bytes(response_payload[index:index+1], byteorder = 'big', signed = (parameter.parameter_type == 'int8') )
+                    index += 1
+                    
+                    parameter.set(_value)
+                
+                if parameter.parameter_type == 'uint16' or parameter.parameter_type == 'int16':
+                
+                    _value = int.from_bytes(response_payload[index : index+2], byteorder = 'big', signed = (parameter.parameter_type == 'int16') )
+                    index += 2
+                    
+                    parameter.set(_value)
+                    
+                if parameter.parameter_type == 'uint32' or parameter.parameter_type == 'int32':
+
+                    _value = int.from_bytes(response_payload[index : index+4], byteorder = 'big', signed = (parameter.parameter_type == 'int32') )                
+                    index += 4
+                    
+                    parameter.set(_value)
+
+                if parameter.parameter_type == 'float':
+
+                    _value = int( int( response_payload[index] << 24 ) | int( response_payload[index+1] << 16 ) | int( response_payload[index+2] << 8 ) | int(response_payload[index+3]) )                
+                    float_value = struct.unpack('>f', _value.to_bytes(4, 'big'))[0]
+                    index += 4
+                    
+                    parameter.set(float_value)        
+
+                self.logger.info(f"Setting value of {parameter.parameter_set_name} : {parameter.parameter_name} to {_value}")
+
+    def send_request(self, request_name: str):
+    
+        packet = []
+    
+        payload = self.form_request_payload(request_name)
+        id = self.get_request_id(request_name)
+        
+        if len(payload) > MAX_PAYLOAD_LENGTH:
+            raise ValueError(f"Number of bytes in the payload cannot be greater than {MAX_PAYLOAD_LENGTH}")
+        
+        packet.append( (self.target_address << 4) | (0 << 2) | ( (id >> 8) & 0x03 ) )
+        packet.append( id & 255 )
+        packet.append( len(payload) )
+        
+        packet = packet + payload
+        
+        for i in range(0, (MAX_PAYLOAD_LENGTH - len(payload))):
+            packet.append(0)
+
+        crc = crc8_ccitt(bytes(packet))
+        
+        packet.append(int(crc))
+        
+        self.logger.info(f"Sending request payload: {packet}")
+        
+        self.serial_port.write(packet)
+        
+        response_packet = self.serial_port.read(32)
+        
+        self.decode_response_packet(response_packet)

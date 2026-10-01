@@ -36,9 +36,148 @@ commands:
         type: uint8
         is_a_list: false
 
+  - name: led_0_status
+    id: 0x01
+
+    request_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false        
+    
+    response_parameters:
+      - name: led_0_state
+        type: uint8
+        is_a_list: false
+      
+      - name: led_0_total_blink_count
+        type: uint16
+        is_a_list: false
+
+  - name: led_1_control
+    id: 0x02
+        
+    request_parameters:
+      - name: set_led_1_state
+        type: uint8
+        is_a_list: false
+        
+      - name: led_1_state
+        type: uint8
+        is_a_list: false
+      
+      - name: set_led_1_blink_count
+        type: uint8
+        is_a_list: false
+      
+      - name: led_1_blink_count
+        type: uint8
+        is_a_list: false
+      
+      - name: set_led_1_blink_interval_ms
+        type: uint8
+        is_a_list: false
+      
+      - name: led_1_blink_interval_ms
+        type: uint16
+        is_a_list: false
+      
+      - name: led_1_blink
+        type: uint8
+        is_a_list: false
+    
+    response_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+
+  - name: led_1_status
+    id: 0x03
+    
+    request_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+
+    response_parameters:
+      - name: led_1_state
+        type: uint8
+        is_a_list: false
+      
+      - name: led_1_total_blink_count
+        type: uint16
+        is_a_list: false
+
+  - name: button_0_control
+    id: 0x04
+
+    request_parameters:
+      - name: reset
+        type: uint8
+        is_a_list: false
+        
+    response_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+  
+  - name: button_0_status
+    id: 0x05
+      
+    request_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+    
+    response_parameters:
+      - name: button_0_state
+        type: uint8
+        is_a_list: false
+      
+      - name: button_0_press_count
+        type: uint8
+        is_a_list: false
+
+  - name: button_1_control
+    id: 0x06
+
+    request_parameters:
+      - name: reset
+        type: uint8
+        is_a_list: false
+        
+    response_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+  
+  - name: button_1_status
+    id: 0x07
+      
+    request_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+    
+    response_parameters:
+      - name: button_1_state
+        type: uint8
+        is_a_list: false
+      
+      - name: button_1_press_count
+        type: uint8
+        is_a_list: false
+
 notifications:
   - name: button0_notification
     id: 0x00
+    
+    notification_parameters:
+      - name: button_press_count
+        type: uint8
+        is_a_list: false
+
+  - name: button1_notification
+    id: 0x01
     
     notification_parameters:
       - name: button_press_count
