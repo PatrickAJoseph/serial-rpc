@@ -6,8 +6,12 @@ import ast
 from enum import Enum
 import logging
 import struct
+import threading
+from queue import Queue
 
 MAX_PAYLOAD_LENGTH = 28
+MAX_RESPONSE_PACKET_QUEUE_SIZE = 32
+MAX_NOTIFICATION_PACKET_QUEUE_SIZE = 128
 
 def crc8_ccitt(data: bytes) -> int:
     if not isinstance(data, (bytes, bytearray)):
@@ -108,6 +112,22 @@ class serial_rpc:
         for parameter in self.notification_parameters:
             self.log_parameter_info(parameter)
 
+    def serial_rx_task(self):
+            
+        while self.running:
+                
+            if(self.serial_port.in_waiting >= 32):
+                    
+                rx_packet = self.serial_port.read(32)
+                    
+                if( ( int(rx_packet[0] >> 2) & 3 ) == 1 ):
+                    self.logger.info("Received a response from a bus target")
+                    self.response_packet_queue.put(rx_packet)
+                    
+                if( ( int(rx_packet[0] >> 2) & 3 ) == 2 ):
+                    self.logger.info("Received a notification from a bus target")
+                    self.notification_packet_queue(rx_packet)
+
     def __init__(self, port_name: str, baud_rate: int, parameter_file: str, target_address: int = 0, timeout_ms:int = 1000):
 
         logging.basicConfig( level = logging.DEBUG, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", filename = "serial_rpc.log", filemode = "w" )
@@ -122,9 +142,21 @@ class serial_rpc:
         self.target_address = target_address
         
         self.load_parameters()
+
+        self.running = True
+        self.response_packet_queue = Queue(maxsize = MAX_RESPONSE_PACKET_QUEUE_SIZE)
+        self.notification_packet_queue = Queue(maxsize = MAX_NOTIFICATION_PACKET_QUEUE_SIZE)
+        self.rx_thread = threading.Thread(target = self.serial_rx_task)
+        self.rx_thread.start()
+        self.rx_timeout = float(0.001) * float(timeout_ms)
         
         self.logger.debug("RPC initialized")
-    
+
+    def __del__(self):
+            
+        self.running = False
+        self.rx_thread.join()
+        
     def set_request_parameter_value(self, request_name, parameter_name, value):
         
         target_parameter = None
@@ -392,6 +424,7 @@ class serial_rpc:
         
         self.serial_port.write(packet)
         
-        response_packet = self.serial_port.read(32)
+        response_packet = self.response_packet_queue.get(timeout = self.rx_timeout)
         
-        self.decode_response_packet(response_packet)
+        self.decode_response_packet(response_packet)        
+        
