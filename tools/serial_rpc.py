@@ -126,7 +126,11 @@ class serial_rpc:
                     
                 if( ( int(rx_packet[0] >> 2) & 3 ) == 2 ):
                     self.logger.info("Received a notification from a bus target")
-                    self.notification_packet_queue(rx_packet)
+                    self.notification_packet_queue.put(rx_packet)
+                
+                if( (int(rx_packet[0] >> 2) & 3 ) == 3 ):
+                    self.logger.info("Received a control and status packet from bus target")
+                    self.control_and_status_packet_queue.put(rx_packet)
 
     def __init__(self, port_name: str, baud_rate: int, parameter_file: str, target_address: int = 0, timeout_ms:int = 1000):
 
@@ -146,9 +150,14 @@ class serial_rpc:
         self.running = True
         self.response_packet_queue = Queue(maxsize = MAX_RESPONSE_PACKET_QUEUE_SIZE)
         self.notification_packet_queue = Queue(maxsize = MAX_NOTIFICATION_PACKET_QUEUE_SIZE)
+        self.control_and_status_packet_queue = Queue()
         self.rx_thread = threading.Thread(target = self.serial_rx_task)
         self.rx_thread.start()
         self.rx_timeout = float(0.001) * float(timeout_ms)
+        
+        self.is_notification_enabled: bool = False
+        self.notification_buffer_size:int = 0
+        self.notification_buffer_count: int = 0
         
         self.logger.debug("RPC initialized")
 
@@ -426,5 +435,55 @@ class serial_rpc:
         
         response_packet = self.response_packet_queue.get(timeout = self.rx_timeout)
         
-        self.decode_response_packet(response_packet)        
+        self.decode_response_packet(response_packet)
+    
+    def enable_notifications(self):
         
+        self.is_notification_enabled = True
+        
+        packet = []
+        packet.append( ((self.target_address) << 4) | (3 << 2) )
+        packet.append(int(self.is_notification_enabled))
+        packet = packet + [0 for i in range(0, MAX_PAYLOAD_LENGTH + 1)]
+        packet.append(crc8_ccitt(bytes(packet)))
+        
+        self.serial_port.write(bytes(packet))
+
+        response_packet = self.control_and_status_packet_queue.get(timeout = self.rx_timeout)
+
+        if(response_packet[1] != 1):
+            raise IOError("Notifications are not enabled in bus target when trying to enable !")        
+
+    def disable_notifications(self):
+        
+        self.is_notification_enabled = False
+        
+        packet = []
+        packet.append( ((self.target_address) << 4) | (3 << 2) )
+        packet.append(int(self.is_notification_enabled))
+        packet = packet + [0 for i in range(0, MAX_PAYLOAD_LENGTH + 1)]
+        packet.append(crc8_ccitt(bytes(packet)))
+        
+        self.serial_port.write(bytes(packet))
+
+        response_packet = self.control_and_status_packet_queue.get(timeout = self.rx_timeout)
+
+        if(response_packet[1] != 0):
+            raise IOError("Notifications are enabled in bus target when trying to disable it !")
+
+    def get_notification_info(self):
+        
+        packet = []
+        packet.append( ((self.target_address) << 4) | (3 << 2) )
+        packet.append(int(self.is_notification_enabled))
+        packet = packet + [0 for i in range(0, MAX_PAYLOAD_LENGTH + 1)]
+        packet.append(crc8_ccitt(bytes(packet)))
+        
+        self.serial_port.write(bytes(packet))
+
+        response_packet = self.control_and_status_packet_queue.get(timeout = self.rx_timeout)
+
+        self.logger.info(f"Notification buffer size: {int(response_packet[2])}")
+        self.logger.info(f"Notification buffer count: {int(response_packet[3])}")
+
+        return ( int(response_packet[2]), int(response_packet[3]) )

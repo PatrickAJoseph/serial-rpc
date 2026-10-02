@@ -4,7 +4,7 @@ import time
 
 handle = serial_rpc.serial_rpc(port_name = 'COM8', baud_rate = 115200, parameter_file = 'test_parameter_file.yaml')
 
-for i in range(0, 1000):
+for i in range(0, 100):
     handle.send_request('button_0_status')
     handle.send_request('button_1_status')
     
@@ -16,3 +16,6 @@ for i in range(0, 1000):
     print(f"Button 0 state: {button_0_state}, Button 0 press count: {button_0_press_count}, Button 1 state: {button_1_state}, Button 1 press count: {button_1_press_count}")
     
     time.sleep(0.01)
+
+handle.enable_notifications()
+handle.get_notification_info()
