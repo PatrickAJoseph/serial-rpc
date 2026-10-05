@@ -1,444 +1,717 @@
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter name: set_led_0_state
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter name: led_0_state
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter name: set_led_0_blink_count
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter name: led_0_blink_count
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,824 [INFO] serial_rpc_logger: Parameter name: set_led_0_blink_interval_ms
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter name: led_0_blink_interval_ms
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter name: led_0_blink
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 1
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set name: led_0_status
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter name: set_led_1_state
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter name: led_1_state
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter name: set_led_1_blink_count
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,825 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: led_1_blink_count
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: set_led_1_blink_interval_ms
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: led_1_blink_interval_ms
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: led_1_blink
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 3
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: led_1_status
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 4
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: button_0_control
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: reset
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 5
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set name: button_0_status
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter set ID: 6
-2026-10-05 10:22:39,826 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: button_1_control
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: reset
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 7
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: button_1_status
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 8
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: test_u8
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 8
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: test_u8
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 9
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: test_i8
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 9
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: test_i8
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 10
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: test_u16
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set ID: 10
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,827 [INFO] serial_rpc_logger: Parameter set name: test_u16
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 11
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_i16
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 11
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_i16
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 12
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_u32
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 12
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_u32
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 13
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_i32
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 13
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_i32
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set ID: 14
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,828 [INFO] serial_rpc_logger: Parameter set name: test_float
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 14
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: request
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: test_float
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: led_0_control
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 1
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: led_0_status
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: led_0_state
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 1
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: led_0_status
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: led_0_total_blink_count
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 2
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: led_1_control
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 3
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: led_1_status
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter name: led_1_state
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set ID: 3
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,829 [INFO] serial_rpc_logger: Parameter set name: led_1_status
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: led_1_total_blink_count
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 4
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set name: button_0_control
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 5
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set name: button_0_status
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: button_0_state
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 5
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set name: button_0_status
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: button_0_press_count
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 6
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set name: button_1_control
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: dummy
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 7
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set name: button_1_status
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: button_1_state
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 7
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set name: button_1_status
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter name: button_1_press_count
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter set ID: 8
-2026-10-05 10:22:39,830 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_u8
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 8
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_u8
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 9
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_i8
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 9
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_i8
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 10
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_u16
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 10
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_u16
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 11
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_i16
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set ID: 11
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter set name: test_i16
-2026-10-05 10:22:39,831 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 12
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: test_u32
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 12
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: test_u32
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 13
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: test_i32
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 13
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: test_i32
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 14
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: test_float
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: length
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 14
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: response
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: test_float
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: values
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set ID: 0
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter group: notification
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter set name: button_0_notification
-2026-10-05 10:22:39,832 [INFO] serial_rpc_logger: Parameter name: button_press_count
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: Parameter set ID: 1
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: Parameter group: notification
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: Parameter set name: button_1_notification
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: Parameter name: button_press_count
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: Parameter value: 0
-2026-10-05 10:22:39,833 [INFO] serial_rpc_logger: -----------------------------------------------
-2026-10-05 10:22:39,834 [DEBUG] serial_rpc_logger: RPC initialized
-2026-10-05 10:22:39,834 [INFO] serial_rpc_logger: Request payload for request parameter test_u8 = [4, 1, 2, 3, 4]
-2026-10-05 10:22:39,834 [INFO] serial_rpc_logger: Sending request payload: [0, 8, 5, 4, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31]
-2026-10-05 10:22:39,840 [INFO] serial_rpc_logger: Received a response from a bus target
-2026-10-05 10:22:39,841 [INFO] serial_rpc_logger: Response packet ID: 8
-2026-10-05 10:22:39,841 [INFO] serial_rpc_logger: Response payload length: 5
-2026-10-05 10:22:39,841 [INFO] serial_rpc_logger: Response payload: b'\x04\x02\x03\x04\x05'
-2026-10-05 10:22:39,841 [INFO] serial_rpc_logger: Response name: test_u8
-2026-10-05 10:22:39,841 [INFO] serial_rpc_logger: Setting value of test_u8 : length to 4
-2026-10-05 10:22:39,841 [INFO] serial_rpc_logger: Setting value of test_u8 : values to [2, 3, 4, 5]
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter name: set_led_0_state
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter name: led_0_state
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter name: set_led_0_blink_count
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter name: led_0_blink_count
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,979 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter name: set_led_0_blink_interval_ms
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter name: led_0_blink_interval_ms
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter name: led_0_blink
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 1
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_0_status
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter name: set_led_1_state
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter name: led_1_state
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,980 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: set_led_1_blink_count
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: led_1_blink_count
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: set_led_1_blink_interval_ms
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: led_1_blink_interval_ms
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: led_1_blink
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 3
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: led_1_status
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 4
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: button_0_control
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter name: reset
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set ID: 5
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,981 [INFO] serial_rpc_logger: Parameter set name: button_0_status
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 6
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: button_1_control
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: reset
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 7
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: button_1_status
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 8
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: test_u8
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 8
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: test_u8
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 9
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: test_i8
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 9
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: test_i8
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set ID: 10
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,982 [INFO] serial_rpc_logger: Parameter set name: test_u16
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 10
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set name: test_u16
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 11
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set name: test_i16
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 11
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set name: test_i16
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 12
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set name: test_u32
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 12
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set name: test_u32
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 13
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set name: test_i32
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter set ID: 13
+2026-10-05 23:28:19,983 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: test_i32
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 14
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: test_float
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 14
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: test_float
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 15
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: test_notification_trigger
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: mask
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 15
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: test_notification_trigger
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: reset
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 15
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: request
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: test_notification_trigger
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set name: led_0_control
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter set ID: 1
+2026-10-05 23:28:19,984 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: led_0_status
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: led_0_state
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 1
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: led_0_status
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: led_0_total_blink_count
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: led_1_control
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 3
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: led_1_status
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: led_1_state
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 3
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: led_1_status
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: led_1_total_blink_count
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 4
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: button_0_control
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 5
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: button_0_status
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter name: button_0_state
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set ID: 5
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,985 [INFO] serial_rpc_logger: Parameter set name: button_0_status
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: button_0_press_count
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 6
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: button_1_control
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 7
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: button_1_status
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: button_1_state
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 7
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: button_1_status
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: button_1_press_count
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 8
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: test_u8
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 8
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: test_u8
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 9
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: test_i8
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set ID: 9
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter set name: test_i8
+2026-10-05 23:28:19,986 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 10
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_u16
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 10
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_u16
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 11
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_i16
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 11
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_i16
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 12
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_u32
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 12
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_u32
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set ID: 13
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,987 [INFO] serial_rpc_logger: Parameter set name: test_i32
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 13
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: test_i32
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 14
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: test_float
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 14
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: test_float
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 15
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: response
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: test_notification_trigger
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: dummy
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: button_0_notification
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: button_press_count
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 1
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: button_1_notification
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: button_press_count
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter set name: test_notification_u8
+2026-10-05 23:28:19,988 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set ID: 2
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set name: test_notification_u8
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set ID: 3
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set name: test_notification_i8
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set ID: 3
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set name: test_notification_i8
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set ID: 4
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set name: test_notification_u16
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set ID: 4
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set name: test_notification_u16
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set ID: 5
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter set name: test_notification_i16
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,989 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 5
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_i16
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 6
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_u32
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 6
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_u32
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 7
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_i32
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 7
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_i32
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 8
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_float
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: length
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set ID: 8
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter group: notification
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter set name: test_notification_float
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter name: values
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: Parameter value: 0
+2026-10-05 23:28:19,990 [INFO] serial_rpc_logger: -----------------------------------------------
+2026-10-05 23:28:19,991 [DEBUG] serial_rpc_logger: RPC initialized
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 3, <function test_i8_notification_callback at 0x000001762C78B3D0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 3, <function test_i8_notification_callback at 0x000001762C78B3D0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 4, <function test_u16_notification_callback at 0x000001762C78B480>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 3, <function test_i8_notification_callback at 0x000001762C78B3D0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 4, <function test_u16_notification_callback at 0x000001762C78B480>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 5, <function test_i16_notification_callback at 0x000001762C78B530>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 3, <function test_i8_notification_callback at 0x000001762C78B3D0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 4, <function test_u16_notification_callback at 0x000001762C78B480>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 5, <function test_i16_notification_callback at 0x000001762C78B530>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 6, <function test_u32_notification_callback at 0x000001762C78B5E0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 3, <function test_i8_notification_callback at 0x000001762C78B3D0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 4, <function test_u16_notification_callback at 0x000001762C78B480>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 5, <function test_i16_notification_callback at 0x000001762C78B530>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 6, <function test_u32_notification_callback at 0x000001762C78B5E0>, None
+2026-10-05 23:28:19,992 [INFO] serial_rpc_logger: Entry in notification callback table: 7, <function test_i32_notification_callback at 0x000001762C78B690>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 2, <function test_u8_notification_callback at 0x000001762C7881A0>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 3, <function test_i8_notification_callback at 0x000001762C78B3D0>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 4, <function test_u16_notification_callback at 0x000001762C78B480>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 5, <function test_i16_notification_callback at 0x000001762C78B530>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 6, <function test_u32_notification_callback at 0x000001762C78B5E0>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 7, <function test_i32_notification_callback at 0x000001762C78B690>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Entry in notification callback table: 8, <function test_float_notification_callback at 0x000001762C78B740>, None
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Request payload for request parameter test_u8 = [4, 1, 2, 3, 4]
+2026-10-05 23:28:19,993 [INFO] serial_rpc_logger: Sending request payload: [0, 8, 5, 4, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31]
+2026-10-05 23:28:19,999 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:19,999 [INFO] serial_rpc_logger: Response packet ID: 8
+2026-10-05 23:28:19,999 [INFO] serial_rpc_logger: Response payload length: 5
+2026-10-05 23:28:20,000 [INFO] serial_rpc_logger: Response payload: b'\x04\x02\x03\x04\x05'
+2026-10-05 23:28:20,000 [INFO] serial_rpc_logger: Response name: test_u8
+2026-10-05 23:28:20,000 [INFO] serial_rpc_logger: Setting value of test_u8 : length to 4
+2026-10-05 23:28:20,000 [INFO] serial_rpc_logger: Setting value of test_u8 : values to [2, 3, 4, 5]
+2026-10-05 23:28:20,000 [INFO] serial_rpc_logger: Request payload for request parameter test_i8 = [4, 1, 2, 3, 4]
+2026-10-05 23:28:20,000 [INFO] serial_rpc_logger: Sending request payload: [0, 9, 5, 4, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 210]
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Response packet ID: 9
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Response payload length: 5
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Response payload: b'\x04\x02\x03\x04\x05'
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Response name: test_i8
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Setting value of test_i8 : length to 4
+2026-10-05 23:28:20,007 [INFO] serial_rpc_logger: Setting value of test_i8 : values to [2, 3, 4, 5]
+2026-10-05 23:28:20,008 [INFO] serial_rpc_logger: Request payload for request parameter test_u16 = [4, 0, 1, 0, 2, 0, 3, 0, 4]
+2026-10-05 23:28:20,008 [INFO] serial_rpc_logger: Sending request payload: [0, 10, 9, 4, 0, 1, 0, 2, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 139]
+2026-10-05 23:28:20,015 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,015 [INFO] serial_rpc_logger: Response packet ID: 10
+2026-10-05 23:28:20,015 [INFO] serial_rpc_logger: Response payload length: 9
+2026-10-05 23:28:20,015 [INFO] serial_rpc_logger: Response payload: b'\x04\x00\x02\x00\x03\x00\x04\x00\x05'
+2026-10-05 23:28:20,015 [INFO] serial_rpc_logger: Response name: test_u16
+2026-10-05 23:28:20,015 [INFO] serial_rpc_logger: Setting value of test_u16 : length to 4
+2026-10-05 23:28:20,016 [INFO] serial_rpc_logger: Setting value of test_u16 : values to [2, 3, 4, 5]
+2026-10-05 23:28:20,016 [INFO] serial_rpc_logger: Request payload for request parameter test_i16 = [4, 0, 1, 0, 2, 0, 3, 0, 4]
+2026-10-05 23:28:20,016 [INFO] serial_rpc_logger: Sending request payload: [0, 11, 9, 4, 0, 1, 0, 2, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70]
+2026-10-05 23:28:20,022 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Response packet ID: 11
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Response payload length: 9
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Response payload: b'\x04\x00\x02\x00\x03\x00\x04\x00\x05'
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Response name: test_i16
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Setting value of test_i16 : length to 4
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Setting value of test_i16 : values to [2, 3, 4, 5]
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Request payload for request parameter test_u32 = [4, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4]
+2026-10-05 23:28:20,023 [INFO] serial_rpc_logger: Sending request payload: [0, 12, 17, 4, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 123]
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Response packet ID: 12
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Response payload length: 17
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Response payload: b'\x04\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05'
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Response name: test_u32
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Setting value of test_u32 : length to 4
+2026-10-05 23:28:20,030 [INFO] serial_rpc_logger: Setting value of test_u32 : values to [2, 3, 4, 5]
+2026-10-05 23:28:20,031 [INFO] serial_rpc_logger: Request payload for request parameter test_i32 = [4, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4]
+2026-10-05 23:28:20,031 [INFO] serial_rpc_logger: Sending request payload: [0, 13, 17, 4, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 182]
+2026-10-05 23:28:20,038 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,038 [INFO] serial_rpc_logger: Response packet ID: 13
+2026-10-05 23:28:20,038 [INFO] serial_rpc_logger: Response payload length: 17
+2026-10-05 23:28:20,038 [INFO] serial_rpc_logger: Response payload: b'\x04\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04\x00\x00\x00\x05'
+2026-10-05 23:28:20,039 [INFO] serial_rpc_logger: Response name: test_i32
+2026-10-05 23:28:20,039 [INFO] serial_rpc_logger: Setting value of test_i32 : length to 4
+2026-10-05 23:28:20,039 [INFO] serial_rpc_logger: Setting value of test_i32 : values to [2, 3, 4, 5]
+2026-10-05 23:28:20,039 [INFO] serial_rpc_logger: Request payload for request parameter test_float = [4, 63, 128, 0, 0, 64, 0, 0, 0, 64, 64, 0, 0, 64, 128, 0, 0]
+2026-10-05 23:28:20,039 [INFO] serial_rpc_logger: Sending request payload: [0, 14, 17, 4, 63, 128, 0, 0, 64, 0, 0, 0, 64, 64, 0, 0, 64, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 238]
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Response packet ID: 14
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Response payload length: 17
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Response payload: b'\x04@\x00\x00\x00@@\x00\x00@\x80\x00\x00@\xa0\x00\x00'
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Response name: test_float
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Setting value of test_float : length to 4
+2026-10-05 23:28:20,046 [INFO] serial_rpc_logger: Setting value of test_float : values to [2.0, 3.0, 4.0, 5.0]
+2026-10-05 23:28:20,053 [INFO] serial_rpc_logger: Received a control and status packet from bus target
+2026-10-05 23:28:20,054 [INFO] serial_rpc_logger: Request payload for request parameter test_notification_trigger = [255, 1, 4]
+2026-10-05 23:28:20,054 [INFO] serial_rpc_logger: Sending request payload: [0, 15, 3, 255, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 159]
+2026-10-05 23:28:20,061 [INFO] serial_rpc_logger: Received a response from a bus target
+2026-10-05 23:28:20,061 [INFO] serial_rpc_logger: Response packet ID: 15
+2026-10-05 23:28:20,061 [INFO] serial_rpc_logger: Response payload length: 1
+2026-10-05 23:28:20,061 [INFO] serial_rpc_logger: Response payload: b'\x00'
+2026-10-05 23:28:20,061 [INFO] serial_rpc_logger: Response name: test_notification_trigger
+2026-10-05 23:28:20,061 [INFO] serial_rpc_logger: Setting value of test_notification_trigger : dummy to 0
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Notification packet ID: 2
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Notification payload length: 5
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Notification payload: b'\x04\x01\x02\x03\x04'
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Notification name: test_notification_u8
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Setting value of test_notification_u8 : length to 4
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Setting value of test_notification_u8 : values to [1, 2, 3, 4]
+2026-10-05 23:28:20,064 [INFO] serial_rpc_logger: Received notification at index : 2
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Notification packet ID: 3
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Notification payload length: 5
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Notification payload: b'\x04\x01\x02\x03\x04'
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Notification name: test_notification_i8
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Setting value of test_notification_i8 : length to 4
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Setting value of test_notification_i8 : values to [1, 2, 3, 4]
+2026-10-05 23:28:20,067 [INFO] serial_rpc_logger: Received notification at index : 3
+2026-10-05 23:28:20,069 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Notification packet ID: 4
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Notification payload length: 9
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Notification payload: b'\x04\x00\x01\x00\x02\x00\x03\x00\x04'
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Notification name: test_notification_u16
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Setting value of test_notification_u16 : length to 4
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Setting value of test_notification_u16 : values to [1, 2, 3, 4]
+2026-10-05 23:28:20,070 [INFO] serial_rpc_logger: Received notification at index : 4
+2026-10-05 23:28:20,072 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,072 [INFO] serial_rpc_logger: Notification packet ID: 5
+2026-10-05 23:28:20,072 [INFO] serial_rpc_logger: Notification payload length: 9
+2026-10-05 23:28:20,072 [INFO] serial_rpc_logger: Notification payload: b'\x04\x00\x01\x00\x02\x00\x03\x00\x04'
+2026-10-05 23:28:20,072 [INFO] serial_rpc_logger: Notification name: test_notification_i16
+2026-10-05 23:28:20,073 [INFO] serial_rpc_logger: Setting value of test_notification_i16 : length to 4
+2026-10-05 23:28:20,073 [INFO] serial_rpc_logger: Setting value of test_notification_i16 : values to [1, 2, 3, 4]
+2026-10-05 23:28:20,073 [INFO] serial_rpc_logger: Received notification at index : 5
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Notification packet ID: 6
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Notification payload length: 17
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Notification payload: b'\x04\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04'
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Notification name: test_notification_u32
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Setting value of test_notification_u32 : length to 4
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Setting value of test_notification_u32 : values to [1, 2, 3, 4]
+2026-10-05 23:28:20,075 [INFO] serial_rpc_logger: Received notification at index : 6
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Notification packet ID: 7
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Notification payload length: 17
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Notification payload: b'\x04\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x04'
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Notification name: test_notification_i32
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Setting value of test_notification_i32 : length to 4
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Setting value of test_notification_i32 : values to [1, 2, 3, 4]
+2026-10-05 23:28:20,078 [INFO] serial_rpc_logger: Received notification at index : 7
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Received a notification from a bus target
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Notification packet ID: 8
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Notification payload length: 17
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Notification payload: b'\x04<#\xd7\n<\xa3\xd7\n<\xf5\xc2\x8f=#\xd7\n'
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Notification name: test_notification_float
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Setting value of test_notification_float : length to 4
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Setting value of test_notification_float : values to [0.009999999776482582, 0.019999999552965164, 0.029999999329447746, 0.03999999910593033]
+2026-10-05 23:28:20,081 [INFO] serial_rpc_logger: Received notification at index : 8
