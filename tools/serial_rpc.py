@@ -34,7 +34,7 @@ class serial_rpc:
 
     class serial_rpc_parameter:
     
-        def __init__(self, parameter_group: str, parameter_set_name: str, id: int, parameter_name: str, parameter_type: str, is_a_list: bool):
+        def __init__(self, parameter_group: str, parameter_set_name: str, id: int, parameter_name: str, parameter_type: str, is_a_list: bool, list_length_parameter_name = ''):
             
             self.value = 0
             self.parameter_name: str = parameter_name
@@ -43,6 +43,7 @@ class serial_rpc:
             self.parameter_full_name: str = parameter_set_name + ":" + parameter_name
             self.parameter_type: str = parameter_type
             self.is_a_list:bool = is_a_list
+            self.list_length_parameter_name = list_length_parameter_name
             self.id = id
         
         def get(self):
@@ -86,7 +87,11 @@ class serial_rpc:
                 response_parameter_is_a_list = response_parameter['is_a_list']
                 response_parameter_type = response_parameter['type']
                 
-                self.response_parameters.append(self.serial_rpc_parameter(parameter_group = 'response', parameter_set_name = command_name, parameter_name = response_parameter_name, parameter_type = response_parameter_type, is_a_list= response_parameter_is_a_list, id = command_id))
+                if(response_parameter_is_a_list): 
+                    response_parameter_list_length_parameter = response_parameter['length_parameter']
+                    self.response_parameters.append(self.serial_rpc_parameter(parameter_group = 'response', parameter_set_name = command_name, parameter_name = response_parameter_name, parameter_type = response_parameter_type, is_a_list= response_parameter_is_a_list, id = command_id, list_length_parameter_name = response_parameter_list_length_parameter))
+                else:
+                    self.response_parameters.append(self.serial_rpc_parameter(parameter_group = 'response', parameter_set_name = command_name, parameter_name = response_parameter_name, parameter_type = response_parameter_type, is_a_list= response_parameter_is_a_list, id = command_id))
 
         for notifications in yaml_file_data['notifications']:
             
@@ -100,8 +105,12 @@ class serial_rpc:
                 notification_parameter_name = notification_parameter['name']
                 notification_parameter_type = notification_parameter['type']
                 notification_parameter_is_a_list = notification_parameter['is_a_list']
-                
-                self.notification_parameters.append(self.serial_rpc_parameter(parameter_group = 'notification', parameter_set_name = notification_name, parameter_name = notification_parameter_name, parameter_type = notification_parameter_type, is_a_list= notification_parameter_is_a_list, id = notification_id))                
+
+                if notification_parameter_is_a_list:
+                    notification_parameter_list_length_parameter = notification_parameter['length_parameter']                
+                    self.notification_parameters.append(self.serial_rpc_parameter(parameter_group = 'notification', parameter_set_name = notification_name, parameter_name = notification_parameter_name, parameter_type = notification_parameter_type, is_a_list= notification_parameter_is_a_list, id = notification_id, list_length_parameter_name = notification_parameter_list_length_parameter))                
+                else:
+                    self.notification_parameters.append(self.serial_rpc_parameter(parameter_group = 'notification', parameter_set_name = notification_name, parameter_name = notification_parameter_name, parameter_type = notification_parameter_type, is_a_list= notification_parameter_is_a_list, id = notification_id))                                
 
         for parameter in self.request_parameters:
             self.log_parameter_info(parameter)
@@ -127,12 +136,15 @@ class serial_rpc:
                 if( ( int(rx_packet[0] >> 2) & 3 ) == 2 ):
                     self.logger.info("Received a notification from a bus target")
                     self.notification_packet_queue.put(rx_packet)
+                    
+                    if self.handle_notifications_immediately == True: 
+                        self.process_notifications()
                 
                 if( (int(rx_packet[0] >> 2) & 3 ) == 3 ):
                     self.logger.info("Received a control and status packet from bus target")
                     self.control_and_status_packet_queue.put(rx_packet)
 
-    def __init__(self, port_name: str, baud_rate: int, parameter_file: str, target_address: int = 0, timeout_ms:int = 1000):
+    def __init__(self, port_name: str, baud_rate: int, parameter_file: str, target_address: int = 0, timeout_ms:int = 1000, handle_notifications_immediately: bool = True):
 
         logging.basicConfig( level = logging.DEBUG, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", filename = "serial_rpc.log", filemode = "w" )
 
@@ -158,6 +170,8 @@ class serial_rpc:
         self.is_notification_enabled: bool = False
         self.notification_buffer_size:int = 0
         self.notification_buffer_count: int = 0
+        self.notification_callback_table = []
+        self.handle_notifications_immediately = handle_notifications_immediately
         
         self.logger.debug("RPC initialized")
 
@@ -405,6 +419,47 @@ class serial_rpc:
                     parameter.set(float_value)        
 
                 self.logger.info(f"Setting value of {parameter.parameter_set_name} : {parameter.parameter_name} to {_value}")
+            
+            else:
+                
+                list_length = self.get_response_parameter_value(parameter.parameter_set_name, parameter.list_length_parameter_name)
+                
+                values = []
+                
+                for i in range(0, list_length):
+                
+                    if parameter.parameter_type == 'uint8' or parameter.parameter_type == 'int8':
+                   
+                        _value = int.from_bytes(response_payload[index:index+1], byteorder = 'big', signed = (parameter.parameter_type == 'int8') )
+                        index += 1
+                    
+                        values.append(_value)
+                
+                    if parameter.parameter_type == 'uint16' or parameter.parameter_type == 'int16':
+                
+                        _value = int.from_bytes(response_payload[index : index+2], byteorder = 'big', signed = (parameter.parameter_type == 'int16') )
+                        index += 2
+                    
+                        values.append(_value)
+                    
+                    if parameter.parameter_type == 'uint32' or parameter.parameter_type == 'int32':
+
+                        _value = int.from_bytes(response_payload[index : index+4], byteorder = 'big', signed = (parameter.parameter_type == 'int32') )                
+                        index += 4
+                    
+                        values.append(_value)
+
+                    if parameter.parameter_type == 'float':
+
+                        _value = int( int( response_payload[index] << 24 ) | int( response_payload[index+1] << 16 ) | int( response_payload[index+2] << 8 ) | int(response_payload[index+3]) )                
+                        float_value = struct.unpack('>f', _value.to_bytes(4, 'big'))[0]
+                        index += 4
+                    
+                        values.append(float_value)        
+
+                parameter.set(values)
+
+                self.logger.info(f"Setting value of {parameter.parameter_set_name} : {parameter.parameter_name} to {values}")
 
     def send_request(self, request_name: str):
     
@@ -487,3 +542,183 @@ class serial_rpc:
         self.logger.info(f"Notification buffer count: {int(response_packet[3])}")
 
         return ( int(response_packet[2]), int(response_packet[3]) )
+    
+    def get_notification_name(self, notification_id: int):
+        
+        target_parameter = None
+        
+        for parameter in self.notification_parameters:
+            if parameter.id == notification_id:
+                target_parameter = parameter
+        
+        if target_parameter == None:
+            raise ValueError(f"Notification name for notification ID {notification_id} not found !")
+        
+        return target_parameter.parameter_set_name        
+
+    def get_notification_id(self, notification_name: str):
+        
+        target_parameter = None
+        
+        for parameter in self.notification_parameters:
+            if parameter.parameter_set_name == notification_name:
+                target_parameter = parameter
+        
+        if target_parameter == None:
+            raise ValueError(f"Notification ID for notification name {notification_name} not found !")
+        
+        return target_parameter.id        
+
+    
+    def register_notification_callback(self, notification_name, callback, args = None):
+        
+        found = False
+        notification_id = self.get_notification_id(notification_name)
+        
+        for entry in self.notification_callback_table:
+            
+            if entry[0] == notification_id:
+                found = True
+                break
+        
+        if found == True:
+            return
+            
+        self.notification_callback_table.append([notification_id, callback, args])
+        
+        for entry in self.notification_callback_table:
+            self.logger.info(f"Entry in notification callback table: {entry[0]}, {entry[1]}, {entry[2]}")
+
+    def decode_notification_packet(self, packet):
+        
+        if crc8_ccitt(packet) != 0:
+            raise IOError("CRC of response packet is corrupted !")
+        
+        notification_id = ( ( int(packet[0]) & 3 ) << 8 ) | int(packet[1])
+        notification_payload_length = int(packet[2])
+        notification_payload = packet[3: (3 + notification_payload_length)]
+        notification_name = self.get_notification_name(notification_id)
+        
+        self.logger.info(f"Notification packet ID: {notification_id}")
+        self.logger.info(f"Notification payload length: {notification_payload_length}")
+        self.logger.info(f"Notification payload: {notification_payload}")
+        self.logger.info(f"Notification name: {notification_name}")
+        
+        notification_parameter_list = []
+        
+        for parameter in self.notification_parameters:
+        
+            if parameter.id == notification_id:
+            
+                notification_parameter_list.append(parameter)
+        
+        index = 0
+        
+        for parameter in notification_parameter_list:
+            
+            if parameter.is_a_list == False:
+                
+                if parameter.parameter_type == 'uint8' or parameter.parameter_type == 'int8':
+                   
+                    _value = int.from_bytes(notification_payload[index:index+1], byteorder = 'big', signed = (parameter.parameter_type == 'int8') )
+                    index += 1
+                    
+                    parameter.set(_value)
+                
+                if parameter.parameter_type == 'uint16' or parameter.parameter_type == 'int16':
+                
+                    _value = int.from_bytes(notification_payload[index : index+2], byteorder = 'big', signed = (parameter.parameter_type == 'int16') )
+                    index += 2
+                    
+                    parameter.set(_value)
+                    
+                if parameter.parameter_type == 'uint32' or parameter.parameter_type == 'int32':
+
+                    _value = int.from_bytes(notification_payload[index : index+4], byteorder = 'big', signed = (parameter.parameter_type == 'int32') )                
+                    index += 4
+                    
+                    parameter.set(_value)
+
+                if parameter.parameter_type == 'float':
+
+                    _value = int( int( notification_payload[index] << 24 ) | int( notification_payload[index+1] << 16 ) | int( notification_payload[index+2] << 8 ) | int(notification_payload[index+3]) )                
+                    float_value = struct.unpack('>f', _value.to_bytes(4, 'big'))[0]
+                    index += 4
+                    
+                    parameter.set(float_value)        
+
+                self.logger.info(f"Setting value of {parameter.parameter_set_name} : {parameter.parameter_name} to {_value}")
+
+            else:
+            
+                list_length = self.get_notification_parameter_value(self.parameter_set_name, self.list_length_parameter_name)
+                
+                values = []
+                
+                for i in range(0, list_length):
+                
+                    if parameter.parameter_type == 'uint8' or parameter.parameter_type == 'int8':
+                   
+                        _value = int.from_bytes(notification_payload[index:index+1], byteorder = 'big', signed = (parameter.parameter_type == 'int8') )
+                        index += 1
+                    
+                        values.append(_value)
+                
+                    if parameter.parameter_type == 'uint16' or parameter.parameter_type == 'int16':
+                
+                        _value = int.from_bytes(notification_payload[index : index+2], byteorder = 'big', signed = (parameter.parameter_type == 'int16') )
+                        index += 2
+                    
+                        values.append(_value)
+                    
+                    if parameter.parameter_type == 'uint32' or parameter.parameter_type == 'int32':
+
+                        _value = int.from_bytes(notification_payload[index : index+4], byteorder = 'big', signed = (parameter.parameter_type == 'int32') )                
+                        index += 4
+                    
+                        values.append(_value)
+
+                    if parameter.parameter_type == 'float':
+
+                        _value = int( int( notification_payload[index] << 24 ) | int( notification_payload[index+1] << 16 ) | int( notification_payload[index+2] << 8 ) | int(notification_payload[index+3]) )                
+                        float_value = struct.unpack('>f', _value.to_bytes(4, 'big'))[0]
+                        index += 4
+                    
+                        values.append(float_value)        
+
+                parameter.set(values)
+
+                self.logger.info(f"Setting value of {parameter.parameter_set_name} : {parameter.parameter_name} to {values}")
+            
+    def process_notifications(self):
+    
+        while not self.notification_packet_queue.empty():
+            
+            packet = self.notification_packet_queue.get()
+            
+            self.decode_notification_packet(packet)
+
+            notification_id = ( ( int(packet[0]) & 3 ) << 8 ) | int(packet[1])
+            
+            self.logger.info(f"Received notification at index : {notification_id}")
+            
+            callback_entry = None
+            
+            for entry in self.notification_callback_table:
+                
+                if entry[0] == notification_id:
+                    
+                    callback_entry = entry
+                    break
+            
+            parameters = []
+            
+            for parameter in self.notification_parameters:
+                
+                if parameter.id == notification_id:
+                    parameters.append((parameter.parameter_name, parameter.value))
+            
+            if callback_entry == None:
+                IOError("Notification callback not found !")
+            
+            callback_entry[1](callback_entry[0], callback_entry[2], dict(parameters))
