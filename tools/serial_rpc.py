@@ -175,10 +175,11 @@ class serial_rpc:
         
         self.logger.debug("RPC initialized")
 
-    def __del__(self):
+    def close(self):
             
         self.running = False
         self.rx_thread.join()
+        self.serial_port.close()
         
     def set_request_parameter_value(self, request_name, parameter_name, value):
         
@@ -255,7 +256,7 @@ class serial_rpc:
         
         target_parameter.set(value)
 
-    def get_notification_parameter_value(self, response_name, parameter_name):
+    def get_notification_parameter_value(self, notification_name, parameter_name):
         
         target_parameter = None
         
@@ -651,7 +652,7 @@ class serial_rpc:
 
             else:
             
-                list_length = self.get_notification_parameter_value(self.parameter_set_name, self.list_length_parameter_name)
+                list_length = self.get_notification_parameter_value(parameter.parameter_set_name, parameter.list_length_parameter_name)
                 
                 values = []
                 
@@ -719,6 +720,7 @@ class serial_rpc:
                     parameters.append((parameter.parameter_name, parameter.value))
             
             if callback_entry == None:
-                IOError("Notification callback not found !")
+                self.logger.warning("Notification callback not found !")
+                return
             
             callback_entry[1](callback_entry[0], callback_entry[2], dict(parameters))
