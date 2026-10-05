@@ -251,7 +251,7 @@ commands:
         is_a_list: false
         
       - name: values
-        type: i16
+        type: int16
         is_a_list: true
         length_parameter: length
 
@@ -295,7 +295,7 @@ commands:
         is_a_list: false
         
       - name: values
-        type: i32
+        type: int32
         is_a_list: true
         length_parameter: length
 
@@ -321,6 +321,27 @@ commands:
         is_a_list: true
         length_parameter: length
 
+  - name: test_notification_trigger
+    id: 0x0F
+    
+    request_parameters:
+      - name: mask
+        type: uint8
+        is_a_list: false
+      
+      - name: reset
+        type: uint8
+        is_a_list: false
+      
+      - name: length
+        type: uint8
+        is_a_list: false
+
+    response_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+
 notifications:
   - name: button_0_notification
     id: 0x00
@@ -337,3 +358,94 @@ notifications:
       - name: button_press_count
         type: uint8
         is_a_list: false
+
+  - name: test_notification_u8
+    id: 0x02
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: uint8
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_notification_i8
+    id: 0x03
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: int8
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_notification_u16
+    id: 0x04
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: uint16
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_notification_i16
+    id: 0x05
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: int16
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_notification_u32
+    id: 0x06
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: uint32
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_notification_i32
+    id: 0x07
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: int32
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_notification_float
+    id: 0x08
+    
+    notification_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+      
+      - name: values
+        type: float
+        is_a_list: true
+        length_parameter: length
