@@ -27,6 +27,14 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_0_status);
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_1_control);
 static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_1_status);
 
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_u8);
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_i8);
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_u16);
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_i16);
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_u32);
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_i32);
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_float);
+
 /* Response callback table. */
 
 SERIAL_RPC_RESPONSE_CALLBACK_TABLE_DEFINE(response_callback_table) =
@@ -39,6 +47,13 @@ SERIAL_RPC_RESPONSE_CALLBACK_TABLE_DEFINE(response_callback_table) =
     SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(5, button_0_status, NULL),
     SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(6, button_1_control, NULL),
     SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(7, button_1_status, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x08, test_u8, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x09, test_i8, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x0A, test_u16, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x0B, test_i16, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x0C, test_u32, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x0D, test_i32, NULL),
+    SERIAL_RPC_RESPONSE_CALLBACK_TABLE_ENTRY_DEFINE(0x0E, test_float, NULL),
     SERIAL_RPC_RESPONSE_CALLBACK_TABLE_END,    
 };
 
@@ -150,11 +165,13 @@ static void gpioCallback(uint_least8_t index)
     if(index == CONFIG_GPIO_BUTTON_0)
     {
         button0_params.press_count++;
+        serial_rpc_send_notification(&rpc_handle, 0, &button0_params.press_count, 4);
     }
 
     if(index == CONFIG_GPIO_BUTTON_1)
     {
         button1_params.press_count++;
+        serial_rpc_send_notification(&rpc_handle, 1, &button1_params.press_count, 4);
     }
 }
 
@@ -382,4 +399,172 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(button_1_status)
     SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle),  2 );
     SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, (button1_params.state) );
     SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 1, (button1_params.press_count) );
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_u8)
+{
+    uint8_t length;
+    uint8_t index;
+    uint8_t values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), (index + 1), (&values[index]) );
+        values[index]++;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), (index + 1), (values[index]));
+    }
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_i8)
+{
+    uint8_t length;
+    uint8_t index;
+    int8_t values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_INT8( (&rpc_handle), (index + 1), (&values[index]) );
+        values[index]++;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_INT8( (&rpc_handle), (index + 1), (values[index]));
+    }
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_u16)
+{
+    uint8_t length;
+    uint8_t index;
+    uint16_t values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT16( (&rpc_handle), ((2*index) + 1), (&values[index]) );
+        values[index]++;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT16( (&rpc_handle), ((2*index) + 1), (values[index]));
+    }
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_i16)
+{
+    uint8_t length;
+    uint8_t index;
+    int16_t values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_INT16( (&rpc_handle), ((2*index) + 1), (&values[index]) );
+        values[index]++;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_INT16( (&rpc_handle), ((2*index) + 1), (values[index]));
+    }
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_u32)
+{
+    uint8_t length;
+    uint8_t index;
+    uint32_t values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT32( (&rpc_handle), ((4*index) + 1), (&values[index]) );
+        values[index]++;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT32( (&rpc_handle), ((4*index) + 1), (values[index]));
+    }
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_i32)
+{
+    uint8_t length;
+    uint8_t index;
+    int32_t values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_INT32( (&rpc_handle), ((4*index) + 1), (&values[index]) );
+        values[index]++;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_INT32( (&rpc_handle), ((4*index) + 1), (values[index]));
+    }
+}
+
+static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_float)
+{
+    uint8_t length;
+    uint8_t index;
+    float values[6];
+    
+    SERIAL_RPC_REQUEST_PAYLOAD_GET_UINT8( (&rpc_handle), 0, (&length) );
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_REQUEST_PAYLOAD_GET_FLOAT( (&rpc_handle), ((4*index) + 1), (&values[index]) );
+        values[index] += 1.0f;
+    }
+
+    SERIAL_RPC_RESPONSE_SET_PAYLOAD_LENGTH( (&rpc_handle), ( length + 1 ));
+    
+    SERIAL_RPC_RESPONSE_PAYLOAD_SET_UINT8( (&rpc_handle), 0, length);
+
+    for( index = 0 ; index < length ; index++ )
+    {
+        SERIAL_RPC_RESPONSE_PAYLOAD_SET_FLOAT( (&rpc_handle), (index + 1), (values[index]));
+    }
 }
