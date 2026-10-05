@@ -16,6 +16,7 @@
 
 #define SERIAL_RPC_PACKET_SIZE                  (32U)
 #define SERIAL_RPC_NOTIFICATION_BUFFER_SIZE     (32U)
+#define SERIAL_RPC_PACKET_PAYLOAD_SIZE          (SERIAL_RPC_PACKET_SIZE - 4)
 
 #define SERIAL_RPC_PACKET_TYPE_REQUEST              (0U)
 #define SERIAL_RPC_PACKET_TYPE_RESPONSE             (1U)
@@ -192,6 +193,65 @@ serial_rpc_handle_t __name__ =                                                  
     uint32_t u32_value = *(((uint32_t*)&float_value));                                               \
                                                                                             \
     uint8_t* data = handle->response.payload;                                               \
+    data[index] = (uint8_t)( u32_value >> 24 );                                             \
+    data[index + 1] = (uint8_t)( u32_value >> 16 );                                         \
+    data[index + 2] = (uint8_t)( u32_value >> 8 );                                          \
+    data[index + 3] = (uint8_t)( u32_value & 0xFF );                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_UINT8(buffer, index, u8_value)                  \
+{                                                                                           \
+    uint8_t* data = buffer;                                                                 \
+    data[index] = (uint8_t)u8_value;                                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_INT8(buffer, index, i8_value)                       \
+{                                                                                           \
+    uint8_t* data = buffer;                                                                 \
+    data[index] = (uint8_t)i8_value;                                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_UINT16(buffer, index, u16_value)                    \
+{                                                                                           \
+    uint8_t* data = buffer;                                               \
+    data[index] = (uint8_t)( u16_value >> 8 );                                              \
+    data[index + 1] = (uint8_t)( u16_value & 0xFF );                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_INT16(buffer, index, i16_value)                     \
+{                                                                                           \
+    uint16_t u16_value = (uint16_t)i16_value;                                               \
+                                                                                            \
+    uint8_t* data = buffer;                                               \
+    data[index] = (uint8_t)( u16_value >> 8 );                                              \
+    data[index + 1] = (uint8_t)( u16_value & 0xFF );                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_UINT32(buffer, index, u32_value)                    \
+{                                                                                           \
+    uint8_t* data = buffer;                                               \
+    data[index] = (uint8_t)( u32_value >> 24 );                                             \
+    data[index + 1] = (uint8_t)( u32_value >> 16 );                                       \
+    data[index + 2] = (uint8_t)( u32_value >> 8 );                                          \
+    data[index + 3] = (uint8_t)( u32_value & 0xFF );                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_INT32(buffer, index, i32_value)                    \
+{                                                                                           \
+    uint32_t u32_value = (uint32_t)i32_value;                                               \
+                                                                                            \
+    uint8_t* data = buffer;                                               \
+    data[index] = (uint8_t)( u32_value >> 24 );                                             \
+    data[index + 1] = (uint8_t)( u32_value >> 16 );                                       \
+    data[index + 2] = (uint8_t)( u32_value >> 8 );                                          \
+    data[index + 3] = (uint8_t)( u32_value & 0xFF );                                        \
+}
+
+#define SERIAL_RPC_NOTIFICATION_PAYLOAD_SET_FLOAT(buffer, index, float_value)                    \
+{                                                                                           \
+    uint32_t u32_value = *(((uint32_t*)&float_value));                                               \
+                                                                                            \
+    uint8_t* data = buffer;                                               \
     data[index] = (uint8_t)( u32_value >> 24 );                                             \
     data[index + 1] = (uint8_t)( u32_value >> 16 );                                         \
     data[index + 2] = (uint8_t)( u32_value >> 8 );                                          \
