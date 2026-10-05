@@ -2,20 +2,14 @@
 import serial_rpc
 import time
 
+def button_0_notification_callback(notification_id, args, parameters):
+    print(f"Button 0 pressed ! Press count : {parameters['button_press_count']}")
+
+def button_1_notification_callback(notification_id, args, parameters):
+    print(f"Button 1 pressed ! Press count : {parameters['button_press_count']}")
+
 handle = serial_rpc.serial_rpc(port_name = 'COM8', baud_rate = 115200, parameter_file = 'test_parameter_file.yaml')
 
-for i in range(0, 100):
-    handle.send_request('button_0_status')
-    handle.send_request('button_1_status')
-    
-    button_0_state = handle.get_response_parameter_value('button_0_status', 'button_0_state')
-    button_0_press_count = handle.get_response_parameter_value('button_0_status', 'button_0_press_count')
-    button_1_state = handle.get_response_parameter_value('button_1_status', 'button_1_state')
-    button_1_press_count = handle.get_response_parameter_value('button_1_status', 'button_1_press_count')
-   
-    print(f"Button 0 state: {button_0_state}, Button 0 press count: {button_0_press_count}, Button 1 state: {button_1_state}, Button 1 press count: {button_1_press_count}")
-    
-    time.sleep(0.01)
-
-handle.enable_notifications()
-handle.get_notification_info()
+handle.set_request_parameter_value('test_u8', 'length', 4)
+handle.set_request_parameter_value('test_u8', 'values', [1,2,3,4])
+handle.send_request('test_u8')

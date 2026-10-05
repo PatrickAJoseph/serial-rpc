@@ -167,8 +167,162 @@ commands:
         type: uint8
         is_a_list: false
 
+  - name: test_u8
+    id: 0x08
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false    
+    
+      - name: values
+        type: uint8
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+        
+      - name: values
+        type: uint8
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_i8
+    id: 0x09
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false    
+    
+      - name: values
+        type: int8
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: int8
+        is_a_list: false
+        
+      - name: values
+        type: int8
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_u16
+    id: 0x0A
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false    
+    
+      - name: values
+        type: uint16
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+        
+      - name: values
+        type: uint16
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_i16
+    id: 0x0B
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false    
+    
+      - name: values
+        type: int16
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+        
+      - name: values
+        type: i16
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_u32
+    id: 0x0C
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false    
+    
+      - name: values
+        type: uint32
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+        
+      - name: values
+        type: uint32
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_i32
+    id: 0x0D
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false    
+    
+      - name: values
+        type: int32
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+        
+      - name: values
+        type: i32
+        is_a_list: true
+        length_parameter: length
+
+  - name: test_float
+    id: 0x0E
+    
+    request_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+
+      - name: values
+        type: float
+        is_a_list: true
+    
+    response_parameters:
+      - name: length
+        type: uint8
+        is_a_list: false
+        
+      - name: values
+        type: float
+        is_a_list: true
+        length_parameter: length
+
 notifications:
-  - name: button0_notification
+  - name: button_0_notification
     id: 0x00
     
     notification_parameters:
@@ -176,7 +330,7 @@ notifications:
         type: uint8
         is_a_list: false
 
-  - name: button1_notification
+  - name: button_1_notification
     id: 0x01
     
     notification_parameters:
