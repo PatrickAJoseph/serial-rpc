@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <limits.h>
 
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART2.h>
@@ -606,6 +607,16 @@ static SERIAL_RPC_RESPONSE_CALLBACK_DEFINE(test_notification_trigger)
     if(reset)
     {
         memset( &test_notification_parameters, 0, sizeof(test_notification_parameters) );
+
+        for(index = 0 ; index < 6 ; index++)
+        {
+            test_notification_parameters.i8_values[index] = INT8_MIN;
+            test_notification_parameters.i16_values[index] = INT16_MIN;
+            test_notification_parameters.i32_values[index] = INT32_MIN;
+            test_notification_parameters.float_values[index] = -1000.0f; 
+        }
+
+        index = 0;
     }
 
     if(mask & TEST_NOTIFICATION_MASK_UINT8)
