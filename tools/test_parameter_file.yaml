@@ -342,6 +342,19 @@ commands:
         type: uint8
         is_a_list: false
 
+  - name: test_invalid_request
+    id: 0x10
+    
+    request_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+
+    response_parameters:
+      - name: dummy
+        type: uint8
+        is_a_list: false
+
 notifications:
   - name: button_0_notification
     id: 0x00

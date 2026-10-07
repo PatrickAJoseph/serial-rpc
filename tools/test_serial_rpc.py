@@ -593,3 +593,86 @@ def test_notification_float():
     handle.disable_notifications()
     
     close_handle(handle)
+
+def test_invalid_request():
+   
+    handle = open_handle()
+
+    exception_captured = False
+
+    try:
+        handle.send_request('test_invalid_notification')
+    except:
+      exception_captured = True
+
+    assert exception_captured == True
+
+    close_handle(handle)
+
+def test_unregistered_notification():
+   
+    handle = open_handle()
+
+    handle.enable_notifications()
+
+    counter = test_notification_counter()
+
+    handle.set_request_parameter_value('test_notification_trigger', 'mask', (1 << 0))
+    handle.send_request('test_notification_trigger')
+
+    handle.disable_notifications()
+
+    close_handle(handle)
+
+    assert counter.notification_count_u8 == 0
+
+def test_notification_multiple():
+   
+    handle = open_handle()
+
+    handle.enable_notifications()
+
+    counter = test_notification_counter()
+   
+    handle.register_notification_callback('test_notification_u8', notification_callback_u8, counter)
+    handle.register_notification_callback('test_notification_i8', notification_callback_i8, counter)
+    handle.register_notification_callback('test_notification_u16', notification_callback_u16, counter)
+    handle.register_notification_callback('test_notification_i16', notification_callback_i16, counter)
+    handle.register_notification_callback('test_notification_u32', notification_callback_u32, counter)
+    handle.register_notification_callback('test_notification_i32', notification_callback_i32, counter)
+    handle.register_notification_callback('test_notification_float', notification_callback_float, counter)
+
+    handle.set_request_parameter_value('test_notification_trigger', 'mask', ( ( 1 << 6 ) | ( 1 << 5 ) | ( 1 << 4 ) | ( 1 << 3 ) | ( 1 << 2 ) | ( 1 << 1 ) | ( 1 << 0 ) ) )
+
+    for i in range(0, 3):
+        handle.send_request('test_notification_trigger')
+   
+    time.sleep(0.1)
+
+    handle.disable_notifications()
+
+    close_handle(handle)
+
+    assert counter.notification_count_u8 == 3
+    assert counter.notification_count_i8 == 3
+    assert counter.notification_count_u16 == 3
+    assert counter.notification_count_i16 == 3
+    assert counter.notification_count_u32 == 3
+    assert counter.notification_count_i32 == 3
+    assert counter.notification_count_float == 3
+
+def test_notification_info():
+   
+    handle = open_handle()
+
+    handle.enable_notifications()
+
+    time.sleep(10.0)
+
+    (notification_buffer_size, notification_count) = handle.get_notification_info()
+
+    handle.disable_notifications()    
+
+    close_handle(handle)
+
+    assert notification_buffer_size == 32
